@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page.title }} — Flow Remote Ops{% endblock %}
+{% block description %}{{ page.tagline }}{% endblock %}
+
+{% block content %}
+
+<section class="section category-page">
+  <div class="glow-orb" style="width:420px; height:420px; top:-160px; right:-160px;" aria-hidden="true"></div>
+  <div class="section-inner narrow">
+    <p class="eyebrow">Talents</p>
+    <h1>{{ page.title }}</h1>
+    <p class="section-lead">{{ page.tagline }}</p>
+
+    {% for para in page.paragraphs %}
+    <p>{{ para }}</p>
+    {% endfor %}
+
+    {% if page.highlights %}
+    <div class="category-items category-items-list">
+      <p class="dropdown-heading">{{ page.highlights_heading or "Highlights" }}</p>
+      <ul>
+        {% for item in page.highlights %}
+        <li>{{ item }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+
+    <div class="hero-actions">
+      <a href="{{ url_for('talents_job_application_form') }}" class="btn btn-primary btn-lg">Apply Now</a>
+      <a href="{{ url_for('talents_application_process') }}" class="btn btn-ghost btn-lg">See the application process</a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

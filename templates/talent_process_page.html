@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Application Process — Flow Remote Ops{% endblock %}
+{% block description %}How the application process works when you apply to work with Flow Remote Ops.{% endblock %}
+
+{% block content %}
+
+<section class="section category-page">
+  <div class="glow-orb" style="width:420px; height:420px; top:-160px; right:-160px;" aria-hidden="true"></div>
+  <div class="section-inner">
+    <p class="eyebrow">Talents</p>
+    <h1>Application Process</h1>
+    <p class="section-lead">A straightforward process from application to onboarding.</p>
+
+    <ol class="process-line">
+      {% for step in steps %}
+      <li>
+        <span class="process-num">{{ "%02d"|format(loop.index) }}</span>
+        <h3>{{ step.title }}</h3>
+        <p>{{ step.description }}</p>
+      </li>
+      {% endfor %}
+    </ol>
+
+    <div class="hero-actions" style="margin-top:2.5em;">
+      <a href="{{ url_for('talents_job_application_form') }}" class="btn btn-primary btn-lg">Start Your Application</a>
+      <a href="{{ url_for('talents_candidate_inquiry_form') }}" class="btn btn-ghost btn-lg">Ask a question first</a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

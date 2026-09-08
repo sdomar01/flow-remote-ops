@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page.title }} — Flow Remote Ops{% endblock %}
+{% block description %}{{ page.description }}{% endblock %}
+
+{% block content %}
+
+<section class="section category-page">
+  <div class="glow-orb" style="width:420px; height:420px; top:-160px; right:-160px;" aria-hidden="true"></div>
+  <div class="section-inner narrow">
+    <p class="eyebrow">Services</p>
+    <h1>{{ page.title }}</h1>
+    <p class="section-lead">{{ page.tagline }}</p>
+    <p>{{ page.description }}</p>
+
+    {% if page.included %}
+    <div class="category-items">
+      <p class="dropdown-heading">What this covers</p>
+      <ul>
+        {% for item in page.included %}
+        <li>{{ item }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+
+    <div class="hero-actions">
+      <a href="{{ url_for('contact') }}" class="btn btn-primary btn-lg">Build Your Remote Team</a>
+      <a href="{{ url_for('index') }}#services" class="btn btn-ghost btn-lg">See all services</a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

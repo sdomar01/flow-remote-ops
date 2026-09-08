@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block title %}{{ title }} — Flow Remote Ops{% endblock %}
+{% block description %}{{ tagline }}{% endblock %}
+
+{% block content %}
+
+<section class="section category-page">
+  <div class="glow-orb" style="width:420px; height:420px; top:-160px; right:-160px;" aria-hidden="true"></div>
+  <div class="section-inner narrow">
+    <p class="eyebrow">Talents</p>
+    <h1>{{ title }}</h1>
+    <p class="section-lead">{{ tagline }}</p>
+
+    <div class="contact-form-box">
+      <form id="{{ form_id }}" class="lead-form js-generic-form" novalidate>
+        {% for field in fields %}
+
+        {% if field.type == 'textarea' %}
+        <div class="field">
+          <label for="{{ form_id }}-{{ field.name }}">{{ field.label }}{% if field.required %} <span aria-hidden="true">*</span>{% endif %}</label>
+          <textarea id="{{ form_id }}-{{ field.name }}" name="{{ field.name }}" rows="{{ field.rows or 3 }}" {% if field.required %}required{% endif %}></textarea>
+        </div>
+
+        {% elif field.type == 'select' %}
+        <div class="field">
+          <label for="{{ form_id }}-{{ field.name }}">{{ field.label }}{% if field.required %} <span aria-hidden="true">*</span>{% endif %}</label>
+          <select id="{{ form_id }}-{{ field.name }}" name="{{ field.name }}" {% if field.required %}required{% endif %}>
+            <option value="" disabled selected>Select one</option>
+            {% for opt in field.options %}
+            <option>{{ opt }}</option>
+            {% endfor %}
+          </select>
+        </div>
+
+        {% elif field.type == 'radio' %}
+        <fieldset class="field radio-field">
+          <legend>{{ field.label }}{% if field.required %} *{% endif %}</legend>
+          {% for opt in field.options %}
+          <label class="radio-option"><input type="radio" name="{{ field.name }}" value="{{ opt }}"> {{ opt }}</label>
+          {% endfor %}
+        </fieldset>
+
+        {% else %}
+        <div class="field">
+          <label for="{{ form_id }}-{{ field.name }}">{{ field.label }}{% if field.required %} <span aria-hidden="true">*</span>{% endif %}</label>
+          <input type="{{ field.type }}" id="{{ form_id }}-{{ field.name }}" name="{{ field.name }}" {% if field.placeholder %}placeholder="{{ field.placeholder }}"{% endif %} {% if field.required %}required{% endif %}>
+        </div>
+        {% endif %}
+
+        {% endfor %}
+
+        <button type="submit" class="btn btn-primary btn-lg lead-form-submit">Submit</button>
+
+        <p class="lead-form-note">
+          This form currently doesn't send anywhere yet — connect it to your Google Form or backend of choice.
+          See <code>submitLeadForm()</code> in <code>static/js/script.js</code>.
+        </p>
+      </form>
+
+      <div class="lead-form-success" hidden>
+        <h3>Thanks — we've got it.</h3>
+        <p>Someone from Flow Remote Ops will follow up soon.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

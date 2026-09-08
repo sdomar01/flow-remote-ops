@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}{{ title }} — Flow Remote Ops{% endblock %}
+{% block description %}{{ title }} for Flow Remote Ops.{% endblock %}
+
+{% block content %}
+
+<section class="section legal-page">
+  <div class="section-inner narrow">
+    <p class="eyebrow">Legal</p>
+    <h1>{{ title }}</h1>
+    <p class="legal-updated">Last updated: {{ updated }}</p>
+
+    <div class="legal-notice">
+      <p><strong>Placeholder document.</strong> This page is a starting template, not legal advice. Have it reviewed by a lawyer familiar with your jurisdiction before relying on it.</p>
+    </div>
+
+    <p>{{ intro }}</p>
+
+    {% for section in sections %}
+    <div class="legal-section">
+      <h2>{{ section.heading }}</h2>
+      {% for para in section.paragraphs %}
+      <p>{{ para }}</p>
+      {% endfor %}
+    </div>
+    {% endfor %}
+
+    <div class="legal-section">
+      <h2>Contact Us</h2>
+      <p>Questions about this {{ title|lower }}? Reach us at <a href="mailto:hello@flowremoteops.com">hello@flowremoteops.com</a>.</p>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

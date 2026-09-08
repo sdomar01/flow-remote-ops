@@ -1,0 +1,358 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="hero-flow-graphic" aria-hidden="true">
+      <svg viewBox="0 0 600 700" preserveAspectRatio="xMidYMid meet">
+        <path d="M520 40 C420 40 330 90 270 190 L270 310 C340 190 430 130 520 130 Z" fill="url(#heroGrad1)"/>
+        <path d="M420 220 C310 220 210 280 150 400 L150 560 C220 420 320 330 420 300 Z" fill="url(#heroGrad2)"/>
+        <defs>
+          <linearGradient id="heroGrad1" x1="270" y1="40" x2="520" y2="310" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#38BDF8"/>
+            <stop offset="1" stop-color="#2563EB"/>
+          </linearGradient>
+          <linearGradient id="heroGrad2" x1="150" y1="220" x2="420" y2="560" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#2563EB"/>
+            <stop offset="1" stop-color="#0A0F1E"/>
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+
+    <div class="hero-inner">
+      <p class="eyebrow">Remote staffing &amp; business support</p>
+      <h1>Build a remote team that moves your business forward.</h1>
+      <p class="hero-lead">Flow Remote Ops helps growing businesses build reliable remote teams for sales, operations, and day-to-day execution — so you can stay focused on growth.</p>
+      <p class="hero-sub">Whatever kind of support your business needs, we'll find the right remote specialist for it.</p>
+      <div class="hero-actions">
+        <a href="{{ url_for('contact') }}" class="btn btn-primary btn-lg">Build Your Remote Team</a>
+        <a href="{{ url_for('contact') }}" class="btn btn-ghost btn-lg">Let's Talk</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section class="section problem" id="problem">
+    <div class="section-inner narrow">
+      <h2>Growth gets harder when you're doing everything yourself.</h2>
+      <p class="section-lead">Most businesses don't lose momentum because the market slows down. They lose it because the work outgrows the people doing it.</p>
+
+      <ul class="problem-list">
+        <li>Too much founder time spent on repetitive, low-leverage tasks</li>
+        <li>Leads and follow-ups slipping through the cracks</li>
+        <li>Workload growing faster than the team can keep up with</li>
+        <li>Trouble finding remote talent that's actually reliable</li>
+        <li>Wanting flexible support without building a large in-house team</li>
+      </ul>
+
+      <p class="section-closer">Flow Remote Ops exists to close that gap — with remote specialists who plug into how your business already runs.</p>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section services" id="services">
+    <div class="section-inner">
+      <h2>Support across every part of the business</h2>
+      <p class="section-lead">Remote specialists organized around what your business actually needs — not a generic list of tasks.</p>
+
+      <div class="service-groups">
+
+        <article class="service-group">
+          <h3>Sales &amp; Business Development</h3>
+          <ul>
+            <li>Lead Generation</li>
+            <li>Prospect Research</li>
+            <li>Client Outreach</li>
+            <li>Appointment Setting</li>
+            <li>Sales Support</li>
+          </ul>
+        </article>
+
+        <article class="service-group">
+          <h3>Operations &amp; Administration</h3>
+          <ul>
+            <li>Administrative Support</li>
+            <li>CRM Management</li>
+            <li>Customer Support</li>
+            <li>Project Management</li>
+            <li>Bookkeeping</li>
+          </ul>
+        </article>
+
+        <article class="service-group">
+          <h3>Marketing &amp; Creative</h3>
+          <ul>
+            <li>Social Media Management</li>
+            <li>Graphic Design</li>
+            <li>Video Editing</li>
+            <li>SEO / Backlink Outreach</li>
+          </ul>
+        </article>
+
+        <article class="service-group">
+          <h3>Technology &amp; Automation</h3>
+          <ul>
+            <li>Web Development</li>
+            <li>AI Automation</li>
+            <li>CRM Automation</li>
+          </ul>
+        </article>
+
+        <article class="service-group service-group-wide">
+          <h3>Remote Team Staffing</h3>
+          <p>Not sure which category fits? We build a dedicated remote team around your specific requirements, drawing from any of the functions above.</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section how-it-works" id="how-it-works">
+    <div class="section-inner">
+      <h2>How it works</h2>
+      <p class="section-lead">A straightforward process for adding remote capacity, from first conversation to ongoing support.</p>
+
+      <ol class="process-line">
+        <li>
+          <span class="process-num">01</span>
+          <h3>Tell us what you need</h3>
+          <p>We start by understanding your business, your goals, your current workload, and the skills required.</p>
+        </li>
+        <li>
+          <span class="process-num">02</span>
+          <h3>We build the right team</h3>
+          <p>We identify and match the remote specialists suited to the work — individually or as a small team.</p>
+        </li>
+        <li>
+          <span class="process-num">03</span>
+          <h3>Your team gets to work</h3>
+          <p>Your remote team handles execution while you stay focused on running and growing the business.</p>
+        </li>
+        <li>
+          <span class="process-num">04</span>
+          <h3>Scale when needed</h3>
+          <p>Add or adjust team capacity as your business changes — no need to rebuild the process each time.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- WHY FLOW -->
+  <section class="section why-flow" id="why-flow">
+    <div class="glow-orb" style="width:420px; height:420px; top:-120px; right:-140px;" aria-hidden="true"></div>
+    <svg class="network-graphic" style="top:20px; right:0; width:340px; height:340px;" viewBox="0 0 340 340" aria-hidden="true">
+      <g stroke="#38BDF8" stroke-width="1" opacity="0.5">
+        <line x1="40" y1="60" x2="150" y2="30"/>
+        <line x1="150" y1="30" x2="260" y2="90"/>
+        <line x1="150" y1="30" x2="120" y2="140"/>
+        <line x1="260" y1="90" x2="220" y2="200"/>
+        <line x1="120" y1="140" x2="220" y2="200"/>
+        <line x1="120" y1="140" x2="60" y2="220"/>
+        <line x1="220" y1="200" x2="280" y2="280"/>
+      </g>
+      <g fill="#38BDF8">
+        <circle cx="40" cy="60" r="3"/>
+        <circle cx="150" cy="30" r="3.5"/>
+        <circle cx="260" cy="90" r="3"/>
+        <circle cx="120" cy="140" r="4"/>
+        <circle cx="220" cy="200" r="3.5"/>
+        <circle cx="60" cy="220" r="2.5"/>
+        <circle cx="280" cy="280" r="3"/>
+      </g>
+    </svg>
+    <div class="section-inner">
+      <h2>Why businesses work with Flow</h2>
+      <div class="why-grid">
+        <div class="why-item">
+          <h3>Flexible team building</h3>
+          <p>Start with one specialist or build out a full remote team — structured around your actual needs, not a fixed package.</p>
+        </div>
+        <div class="why-item">
+          <h3>Business-focused approach</h3>
+          <p>We think in terms of outcomes for your business, not just tasks completed.</p>
+        </div>
+        <div class="why-item">
+          <h3>One partner, multiple functions</h3>
+          <p>Sales, operations, admin, and specialized support — coordinated through a single point of contact.</p>
+        </div>
+        <div class="why-item">
+          <h3>Scalable support</h3>
+          <p>Adjust your remote team's size as workload changes, without restarting the hiring process every time.</p>
+        </div>
+        <div class="why-item">
+          <h3>Less time spent managing</h3>
+          <p>We handle the matching and structure, so you spend less time on hiring and more time on the business.</p>
+        </div>
+        <div class="why-item">
+          <h3>Reliable remote specialists</h3>
+          <p>People who are equipped to fit into how your business already operates, not generic freelancers.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO WE HELP -->
+  <section class="section who-we-help" id="who-we-help">
+    <div class="section-inner">
+      <h2>Who we help</h2>
+      <p class="section-lead">Flow Remote Ops works with businesses that are growing faster than their current team can handle.</p>
+
+      <div class="who-grid">
+        <div class="who-card">Growing Businesses</div>
+        <div class="who-card">Agencies</div>
+        <div class="who-card">SaaS Companies</div>
+        <div class="who-card">E-commerce Businesses</div>
+        <div class="who-card">Real Estate Companies</div>
+        <div class="who-card">Coaches &amp; Consultants</div>
+        <div class="who-card">Professional Services</div>
+        <div class="who-card">Startups</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section about" id="about">
+    <div class="section-inner narrow">
+      <h2>We build remote teams for growing businesses.</h2>
+      <p>Flow Remote Ops helps businesses extend their capabilities through remote specialists and structured support — across sales, operations, administration, and specialized functions. Whatever kind of support your business needs, we build a remote team around it, rather than limiting you to one type of role.</p>
+      <p>Our approach is straightforward: understand what the business needs, put the right people in place, and stay flexible as those needs change.</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section faq" id="faq">
+    <div class="glow-orb" style="width:360px; height:360px; bottom:-160px; left:-140px;" aria-hidden="true"></div>
+    <div class="section-inner narrow">
+      <h2>Frequently asked questions</h2>
+
+      <div class="accordion" id="accordion">
+
+        <div class="accordion-item">
+          <h3>
+            <button class="accordion-trigger" aria-expanded="false">
+              What types of remote specialists can you provide?
+              <span class="accordion-icon" aria-hidden="true"></span>
+            </button>
+          </h3>
+          <div class="accordion-panel">
+            <p>We provide remote specialists across sales and business development, operations and administration, marketing and creative, and technology and automation — including combinations tailored to a specific role.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h3>
+            <button class="accordion-trigger" aria-expanded="false">
+              Can you build a team around our specific requirements?
+              <span class="accordion-icon" aria-hidden="true"></span>
+            </button>
+          </h3>
+          <div class="accordion-panel">
+            <p>Yes. We start by understanding your workload and goals, then match specialists — or build a small team — around what your business specifically needs.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h3>
+            <button class="accordion-trigger" aria-expanded="false">
+              Do you provide part-time and full-time support?
+              <span class="accordion-icon" aria-hidden="true"></span>
+            </button>
+          </h3>
+          <div class="accordion-panel">
+            <p>Both are available. We'll help you determine the right arrangement based on the scope of work and your budget.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h3>
+            <button class="accordion-trigger" aria-expanded="false">
+              What industries do you work with?
+              <span class="accordion-icon" aria-hidden="true"></span>
+            </button>
+          </h3>
+          <div class="accordion-panel">
+            <p>We primarily support small and medium-sized businesses, startups, agencies, SaaS companies, coaches and consultants, real estate businesses, professional service companies, and e-commerce businesses.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h3>
+            <button class="accordion-trigger" aria-expanded="false">
+              How does the onboarding process work?
+              <span class="accordion-icon" aria-hidden="true"></span>
+            </button>
+          </h3>
+          <div class="accordion-panel">
+            <p>After an initial conversation about your needs, we match the right specialist or team and coordinate the handoff so they can start on the work with minimal ramp-up time from you.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h3>
+            <button class="accordion-trigger" aria-expanded="false">
+              Can we start with one specialist and scale later?
+              <span class="accordion-icon" aria-hidden="true"></span>
+            </button>
+          </h3>
+          <div class="accordion-panel">
+            <p>Yes — many businesses start with a single role and expand their remote team as needs grow. There's no requirement to commit to a large team upfront.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h3>
+            <button class="accordion-trigger" aria-expanded="false">
+              How do we get started?
+              <span class="accordion-icon" aria-hidden="true"></span>
+            </button>
+          </h3>
+          <div class="accordion-panel">
+            <p>Reach out through the "Build Your Remote Team" form with a bit about your business and what kind of support you're looking for, and we'll take it from there.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT TEASER -->
+  <section class="section contact" id="contact">
+    <div class="section-inner">
+      <div class="contact-grid">
+
+        <div class="contact-copy">
+          <p class="eyebrow">Get in touch</p>
+          <h2>Let's build your remote team.</h2>
+          <p class="section-lead">Tell us a bit about your business and the kind of support you're looking for. This isn't a generic contact form — think of it as the start of a short consultation.</p>
+
+          <ul class="contact-benefits">
+            <li>
+              <span class="contact-benefit-icon" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="M4 15V8a6 6 0 0112 0v7M2 15h16M6 15v2a1 1 0 001 1h6a1 1 0 001-1v-2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span>Reliable remote specialists matched to the work you actually need done</span>
+            </li>
+            <li>
+              <span class="contact-benefit-icon" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="M10 2l1.6 3.9L16 6.5l-3 2.9.9 4.1-3.9-2-3.9 2 .9-4.1-3-2.9 4.4-.6z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg></span>
+              <span>No large in-house team to build or manage — start with one role, scale later</span>
+            </li>
+            <li>
+              <span class="contact-benefit-icon" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7.3" stroke="currentColor" stroke-width="1.5"/><path d="M10 6v4l3 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span>One partner coordinating sales, operations, admin, and specialized support</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="contact-form-panel">
+          <div class="form-embed-placeholder">
+            <p><strong>Ready when you are.</strong></p>
+            <p>Tell us about your business and the support you need — takes about two minutes.</p>
+            <a href="{{ url_for('contact') }}" class="btn btn-primary btn-lg">Build Your Remote Team</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}{{ title }} — Flow Remote Ops{% endblock %}
+{% block description %}This page is on its way.{% endblock %}
+
+{% block content %}
+
+<section class="section coming-soon-page">
+  <div class="glow-orb" style="width:360px; height:360px; top:-140px; left:50%; transform:translateX(-50%);" aria-hidden="true"></div>
+  <div class="section-inner narrow" style="text-align:center;">
+    <p class="eyebrow">Coming soon</p>
+    <h1>{{ title }}</h1>
+    <p class="section-lead" style="margin-left:auto; margin-right:auto;">This page isn't built yet — it's a placeholder so the link doesn't break while the rest of the site comes together.</p>
+    <div class="hero-actions" style="justify-content:center;">
+      <a href="{{ url_for('contact') }}" class="btn btn-primary btn-lg">Build Your Remote Team</a>
+      <a href="{{ url_for('index') }}" class="btn btn-ghost btn-lg">Back to home</a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
