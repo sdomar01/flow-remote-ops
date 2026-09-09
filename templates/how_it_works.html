@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}How It Works — Flow Remote Ops{% endblock %}
+{% block description %}A straightforward process for adding remote capacity, from first conversation to ongoing support.{% endblock %}
+
+{% block content %}
+
+<section class="section category-page">
+  <div class="glow-orb" style="width:420px; height:420px; top:-160px; right:-160px;" aria-hidden="true"></div>
+  <div class="section-inner">
+    <p class="eyebrow">About</p>
+    <h1>How It Works</h1>
+    <p class="section-lead">A straightforward process for adding remote capacity, from first conversation to ongoing support.</p>
+
+    <ol class="process-line">
+      <li>
+        <span class="process-num">01</span>
+        <h3>Tell us what you need</h3>
+        <p>We start by understanding your business, your goals, your current workload, and the skills required.</p>
+      </li>
+      <li>
+        <span class="process-num">02</span>
+        <h3>We build the right team</h3>
+        <p>We identify and match the remote specialists suited to the work — individually or as a small team.</p>
+      </li>
+      <li>
+        <span class="process-num">03</span>
+        <h3>Your team gets to work</h3>
+        <p>Your remote team handles execution while you stay focused on running and growing the business.</p>
+      </li>
+      <li>
+        <span class="process-num">04</span>
+        <h3>Scale when needed</h3>
+        <p>Add or adjust team capacity as your business changes — no need to rebuild the process each time.</p>
+      </li>
+    </ol>
+
+    <div class="hero-actions" style="margin-top:2.5em;">
+      <a href="{{ url_for('contact') }}" class="btn btn-primary btn-lg">Book Your Free Ops Audit</a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

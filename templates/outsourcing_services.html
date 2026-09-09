@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Outsourcing Services — Flow Remote Ops{% endblock %}
+{% block description %}Reliable remote specialists across admin, finance, creative, and systems — plus LAUNCH for founders starting from scratch.{% endblock %}
+
+{% block content %}
+
+<section class="section category-page">
+  <div class="glow-orb" style="width:420px; height:420px; top:-160px; right:-160px;" aria-hidden="true"></div>
+  <div class="section-inner">
+    <p class="eyebrow">About</p>
+    <h1>Outsourcing Services</h1>
+    <p class="section-lead">Whatever's eating your time — admin, finance, content, or systems — there's a pillar for it. Here's the full picture of what we can take off your plate.</p>
+
+    <div class="service-groups" style="margin-top:2.5em;">
+      {% for slug, pillar in pillars.items() %}
+      <article class="service-group">
+        <h3>{{ pillar.title }}</h3>
+        <p class="service-outcome">{{ pillar.tagline }}</p>
+        <p style="font-size:0.92rem; margin-bottom:1em;">{{ pillar.description }}</p>
+        <ul>
+          {% for item in pillar.included %}
+          <li>{{ item }}</li>
+          {% endfor %}
+        </ul>
+        <a href="{{ url_for('service_page', slug=slug) }}" class="role-tag" style="display:inline-block; margin-top:14px; text-decoration:none;">Learn more →</a>
+      </article>
+      {% endfor %}
+
+      <article class="service-group service-group-wide">
+        <h3>Just starting out? Ask about LAUNCH.</h3>
+        <p>Our project-based package takes a business idea from concept to fully operational — branding, a website and funnel, initial SOPs, and a 30-day marketing plan to get you moving.</p>
+      </article>
+    </div>
+
+    <div class="hero-actions" style="margin-top:2.5em;">
+      <a href="{{ url_for('contact') }}" class="btn btn-primary btn-lg">Book Your Free Ops Audit</a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

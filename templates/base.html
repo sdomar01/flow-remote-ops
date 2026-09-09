@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon.png') }}">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{% block title %}Flow Remote Ops — Build a Remote Team That Moves Your Business Forward{% endblock %}</title>
-<meta name="description" content="{% block description %}Flow Remote Ops helps growing businesses build reliable remote teams for sales, operations, and day-to-day execution — so you can stay focused on growth.{% endblock %}">
+<title>{% block title %}Flow Remote Ops — We Run the Back End. You Build the Business.{% endblock %}</title>
+<meta name="description" content="{% block description %}Flow Remote Ops gives founders reliable, pre-vetted remote specialists, documented SOPs, and automation — so the business runs on systems, not on you.{% endblock %}">
 <meta name="author" content="Flow Remote Ops">
 <!-- About Us summary, used for search engines and link previews -->
-<meta name="about" content="Flow Remote Ops builds remote teams for growing businesses, connecting them with remote specialists and structured support across sales, operations, administration, and specialized functions.">
+<meta name="about" content="Flow Remote Ops helps founders in the US, UK, and Australia build and scale their businesses without drowning in operations, through pre-vetted remote specialists, systemized SOPs, and automation.">
 
-<meta property="og:title" content="{% block og_title %}Flow Remote Ops — Build Your Remote Team{% endblock %}">
-<meta property="og:description" content="{% block og_description %}We build remote teams for growing businesses — connecting you with remote specialists and structured support across sales, operations, and administration.{% endblock %}">
+<meta property="og:title" content="{% block og_title %}Flow Remote Ops — We Run the Back End. You Build the Business.{% endblock %}">
+<meta property="og:description" content="{% block og_description %}Reliable, pre-vetted remote specialists, systemized SOPs, and automation — so founders get their time back.{% endblock %}">
 <meta property="og:type" content="website">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
@@ -25,22 +26,7 @@
 <header class="site-header" id="site-header">
   <div class="header-inner">
     <a href="{{ url_for('index') }}" class="logo" aria-label="Flow Remote Ops home">
-      <span class="logo-mark" aria-hidden="true">
-        <svg viewBox="0 0 48 48" width="30" height="30">
-          <path d="M40 6 C34 6 28 9 24 15 L24 21 C29 15 34 12 40 12 Z" fill="url(#flowGrad1)"/>
-          <path d="M32 18 C25 18 18 22 14 30 L14 40 C19 32 25 26 32 24 Z" fill="url(#flowGrad2)"/>
-          <defs>
-            <linearGradient id="flowGrad1" x1="24" y1="6" x2="40" y2="21" gradientUnits="userSpaceOnUse">
-              <stop stop-color="#38BDF8"/>
-              <stop offset="1" stop-color="#2563EB"/>
-            </linearGradient>
-            <linearGradient id="flowGrad2" x1="14" y1="18" x2="32" y2="40" gradientUnits="userSpaceOnUse">
-              <stop stop-color="#2563EB"/>
-              <stop offset="1" stop-color="#0F172A"/>
-            </linearGradient>
-          </defs>
-        </svg>
-      </span>
+      <img src="{{ url_for('static', filename='images/favicon.png') }}" alt="" class="logo-img" aria-hidden="true">
       <span class="logo-word">Flow<span class="logo-word-light">RemoteOps</span></span>
     </a>
 
@@ -57,7 +43,7 @@
 
             <div class="dropdown-intro">
               <span class="dropdown-intro-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" width="20" height="20" fill="none"><path d="M20 4 C15 4 10.5 6.5 8 11 L8 15 C11 10.5 15.5 8 20 8 Z" fill="url(#aboutNavFlowGrad)"/><defs><linearGradient id="aboutNavFlowGrad" x1="8" y1="4" x2="20" y2="15" gradientUnits="userSpaceOnUse"><stop stop-color="#38BDF8"/><stop offset="1" stop-color="#2563EB"/></linearGradient></defs></svg>
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none"><path d="M20 4 C15 4 10.5 6.5 8 11 L8 15 C11 10.5 15.5 8 20 8 Z" fill="url(#aboutNavFlowGrad)"/><defs><linearGradient id="aboutNavFlowGrad" x1="8" y1="4" x2="20" y2="15" gradientUnits="userSpaceOnUse"><stop stop-color="#59A7E7"/><stop offset="1" stop-color="#FFB20C"/></linearGradient></defs></svg>
               </span>
               <p class="dropdown-intro-label">About</p>
               <p class="dropdown-intro-desc">Get to know Flow Remote Ops and how we build remote teams for growing businesses.</p>
@@ -67,8 +53,8 @@
               <div class="dropdown-col">
                 <a href="{{ url_for('index') }}#about">About Us</a>
                 <a href="{{ url_for('vision_mission') }}">Vision and Mission</a>
-                <a href="{{ url_for('index') }}#why-flow">Why Work With Us</a>
-                <a href="{{ url_for('index') }}#services">Outsourcing Services</a>
+                <a href="{{ url_for('why_work_with_us') }}">Why Work With Us</a>
+                <a href="{{ url_for('outsourcing_services') }}">Outsourcing Services</a>
                 <a href="{{ url_for('contact') }}">Contact Us</a>
               </div>
             </div>
@@ -88,7 +74,7 @@
 
             <div class="dropdown-intro">
               <span class="dropdown-intro-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" width="20" height="20" fill="none"><path d="M20 4 C15 4 10.5 6.5 8 11 L8 15 C11 10.5 15.5 8 20 8 Z" fill="url(#employersNavFlowGrad)"/><defs><linearGradient id="employersNavFlowGrad" x1="8" y1="4" x2="20" y2="15" gradientUnits="userSpaceOnUse"><stop stop-color="#38BDF8"/><stop offset="1" stop-color="#2563EB"/></linearGradient></defs></svg>
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none"><path d="M20 4 C15 4 10.5 6.5 8 11 L8 15 C11 10.5 15.5 8 20 8 Z" fill="url(#employersNavFlowGrad)"/><defs><linearGradient id="employersNavFlowGrad" x1="8" y1="4" x2="20" y2="15" gradientUnits="userSpaceOnUse"><stop stop-color="#59A7E7"/><stop offset="1" stop-color="#FFB20C"/></linearGradient></defs></svg>
               </span>
               <p class="dropdown-intro-label">Employers</p>
               <p class="dropdown-intro-desc">Reliable remote specialists, matched to the work your business actually needs.</p>
@@ -97,10 +83,10 @@
             <div class="dropdown-links dropdown-links-3col">
               <div class="dropdown-col">
                 <p class="dropdown-heading">Services</p>
-                <a href="{{ url_for('service_page', slug='sales-business-development') }}">Sales &amp; Business Development</a>
-                <a href="{{ url_for('service_page', slug='operations-administration') }}">Operations &amp; Administration</a>
-                <a href="{{ url_for('service_page', slug='marketing-creative') }}">Marketing &amp; Creative</a>
-                <a href="{{ url_for('service_page', slug='technology-automation') }}">Technology &amp; Automation</a>
+                <a href="{{ url_for('service_page', slug='executive-admin-support') }}">Executive &amp; Admin Support</a>
+                <a href="{{ url_for('service_page', slug='finance-bookkeeping') }}">Finance &amp; Bookkeeping</a>
+                <a href="{{ url_for('service_page', slug='creative-content') }}">Creative &amp; Content</a>
+                <a href="{{ url_for('service_page', slug='systems-automation') }}">Systems &amp; Automation</a>
               </div>
 
               <div class="dropdown-col">
@@ -117,8 +103,8 @@
 
               <div class="dropdown-col">
                 <p class="dropdown-heading">Get Started</p>
-                <a href="{{ url_for('index') }}#how-it-works">How It Works</a>
-                <a href="{{ url_for('contact') }}">Build Your Remote Team</a>
+                <a href="{{ url_for('how_it_works') }}">How It Works</a>
+                <a href="{{ url_for('contact') }}">Book Your Free Ops Audit</a>
               </div>
             </div>
 
@@ -137,7 +123,7 @@
 
             <div class="dropdown-intro">
               <span class="dropdown-intro-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" width="20" height="20" fill="none"><path d="M20 4 C15 4 10.5 6.5 8 11 L8 15 C11 10.5 15.5 8 20 8 Z" fill="url(#talentsNavFlowGrad)"/><defs><linearGradient id="talentsNavFlowGrad" x1="8" y1="4" x2="20" y2="15" gradientUnits="userSpaceOnUse"><stop stop-color="#38BDF8"/><stop offset="1" stop-color="#2563EB"/></linearGradient></defs></svg>
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none"><path d="M20 4 C15 4 10.5 6.5 8 11 L8 15 C11 10.5 15.5 8 20 8 Z" fill="url(#talentsNavFlowGrad)"/><defs><linearGradient id="talentsNavFlowGrad" x1="8" y1="4" x2="20" y2="15" gradientUnits="userSpaceOnUse"><stop stop-color="#59A7E7"/><stop offset="1" stop-color="#FFB20C"/></linearGradient></defs></svg>
               </span>
               <p class="dropdown-intro-label">Talents</p>
               <p class="dropdown-intro-desc">Interested in working with Flow Remote Ops? Here's where to start.</p>
@@ -169,7 +155,7 @@
 
             <div class="dropdown-intro">
               <span class="dropdown-intro-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" width="20" height="20" fill="none"><path d="M20 4 C15 4 10.5 6.5 8 11 L8 15 C11 10.5 15.5 8 20 8 Z" fill="url(#exploreNavFlowGrad)"/><defs><linearGradient id="exploreNavFlowGrad" x1="8" y1="4" x2="20" y2="15" gradientUnits="userSpaceOnUse"><stop stop-color="#38BDF8"/><stop offset="1" stop-color="#2563EB"/></linearGradient></defs></svg>
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none"><path d="M20 4 C15 4 10.5 6.5 8 11 L8 15 C11 10.5 15.5 8 20 8 Z" fill="url(#exploreNavFlowGrad)"/><defs><linearGradient id="exploreNavFlowGrad" x1="8" y1="4" x2="20" y2="15" gradientUnits="userSpaceOnUse"><stop stop-color="#59A7E7"/><stop offset="1" stop-color="#FFB20C"/></linearGradient></defs></svg>
               </span>
               <p class="dropdown-intro-label">Explore</p>
               <p class="dropdown-intro-desc">Read up on remote staffing, or find answers to common questions.</p>
@@ -201,8 +187,8 @@
   <div class="mobile-nav" id="mobile-nav">
     <a href="{{ url_for('index') }}#about">About</a>
     <a href="{{ url_for('vision_mission') }}">About: Vision and Mission</a>
-    <a href="{{ url_for('index') }}#why-flow">About: Why Work With Us</a>
-    <a href="{{ url_for('index') }}#services">Employers: Services</a>
+    <a href="{{ url_for('why_work_with_us') }}">About: Why Work With Us</a>
+    <a href="{{ url_for('outsourcing_services') }}">Employers: Services</a>
     <a href="{{ url_for('index') }}#who-we-help">Employers: Who We Help</a>
     <a href="{{ url_for('talents_careers') }}">Talents: Careers</a>
     <a href="{{ url_for('blog') }}">Explore: Blog</a>
@@ -221,25 +207,25 @@
   <div class="footer-inner">
 
     <div class="footer-col footer-brand-col">
-      <span class="logo-word">Flow<span class="logo-word-light">RemoteOps</span></span>
-      <p>We build remote teams for growing businesses.</p>
+      <img src="{{ url_for('static', filename='images/favicon.png') }}" alt="Flow Remote Ops" class="logo-img footer-logo-img">
+      <p>People. Process. Performance.</p>
     </div>
 
     <div class="footer-col">
       <p class="footer-col-heading">Company</p>
       <a href="{{ url_for('index') }}#about">About</a>
       <a href="{{ url_for('vision_mission') }}">Vision and Mission</a>
-      <a href="{{ url_for('index') }}#why-flow">Why Work With Us</a>
+      <a href="{{ url_for('why_work_with_us') }}">Why Work With Us</a>
       <a href="{{ url_for('faq') }}">FAQ</a>
       <a href="{{ url_for('contact') }}">Contact Us</a>
     </div>
 
     <div class="footer-col">
       <p class="footer-col-heading">Services</p>
-      <a href="{{ url_for('service_page', slug='sales-business-development') }}">Sales &amp; Business Development</a>
-      <a href="{{ url_for('service_page', slug='operations-administration') }}">Operations &amp; Administration</a>
-      <a href="{{ url_for('service_page', slug='marketing-creative') }}">Marketing &amp; Creative</a>
-      <a href="{{ url_for('service_page', slug='technology-automation') }}">Technology &amp; Automation</a>
+      <a href="{{ url_for('service_page', slug='executive-admin-support') }}">Executive &amp; Admin Support</a>
+      <a href="{{ url_for('service_page', slug='finance-bookkeeping') }}">Finance &amp; Bookkeeping</a>
+      <a href="{{ url_for('service_page', slug='creative-content') }}">Creative &amp; Content</a>
+      <a href="{{ url_for('service_page', slug='systems-automation') }}">Systems &amp; Automation</a>
     </div>
 
     <div class="footer-col">

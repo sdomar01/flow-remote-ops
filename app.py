@@ -30,29 +30,29 @@ app = Flask(__name__)
 # Service category pages (Employers dropdown > Services column)
 # ----------------------------------------------------------------------
 SERVICE_PAGES = {
-    "sales-business-development": {
-        "title": "Sales & Business Development",
-        "tagline": "Keep your pipeline moving without hiring an in-house team.",
-        "description": "A remote specialist handling lead generation, prospect research, and outreach so your sales pipeline keeps moving even when your team is stretched thin. Rather than losing potential clients to slow follow-up, you get someone dedicated to keeping conversations moving and appointments booked, without the cost and ramp-up time of a full-time hire.",
-        "included": ["Lead Generation", "Prospect Research", "Client Outreach", "Appointment Setting", "Sales Support"],
+    "executive-admin-support": {
+        "title": "Executive & Admin Support",
+        "tagline": "Never touch your inbox again.",
+        "description": "A dedicated remote specialist to handle the inbox, calendar, research, and customer-facing admin that eats up a founder's day. Instead of answering emails between meetings, you get someone keeping it all moving in the background — so your time goes back to the work only you can do.",
+        "included": ["Inbox & Calendar Management", "Research, Data Entry & Reporting", "Customer Support — Email, Chat & Calls", "Travel, Scheduling & PA Tasks"],
     },
-    "operations-administration": {
-        "title": "Operations & Administration",
-        "tagline": "Keep the day-to-day running smoothly.",
-        "description": "Reliable support for the administrative and operational work that keeps a business functioning — from managing your CRM to handling customer inquiries and keeping projects on track. This is often the first area where things start to slip as a business grows; a dedicated remote specialist keeps that from happening.",
-        "included": ["Administrative Support", "CRM Management", "Customer Support", "Project Management", "Bookkeeping"],
+    "finance-bookkeeping": {
+        "title": "Finance & Bookkeeping",
+        "tagline": "Books always current. No more month-end panic.",
+        "description": "Reliable, ongoing bookkeeping support so your books don't fall three weeks behind. From reconciliation to invoicing and expense tracking, this keeps your financials current so month-end stops being a scramble.",
+        "included": ["General Bookkeeping & Reconciliation", "Invoicing & AR Follow-Up", "Expense Tracking & Monthly Reports"],
     },
-    "marketing-creative": {
-        "title": "Marketing & Creative",
-        "tagline": "Consistent content and outreach, without the agency retainer.",
-        "description": "A remote specialist to keep your marketing consistent — managing social channels, producing graphics and video, and handling outreach — matched to what your business actually needs. This works well for businesses that know marketing matters but don't have the bandwidth to keep it running every week.",
-        "included": ["Social Media Management", "Graphic Design", "Video Editing", "SEO / Backlink Outreach"],
+    "creative-content": {
+        "title": "Creative & Content",
+        "tagline": "Content that ships every week — without you making it.",
+        "description": "A remote specialist to keep your content and social presence consistent — video editing, design, and posting — matched to what your business actually needs, so the content plan doesn't just exist, it ships.",
+        "included": ["Video Editing", "Graphic Design & Brand Assets", "Social Media Management", "Content Repurposing"],
     },
-    "technology-automation": {
-        "title": "Technology & Automation",
-        "tagline": "Technical support without a full-time hire.",
-        "description": "Remote support for web development and automation work, so your site and internal systems keep improving without needing a full-time technical hire. This can range from small website updates to setting up automations that remove repetitive manual work from your team's plate.",
-        "included": ["Web Development", "AI Automation", "CRM Automation"],
+    "systems-automation": {
+        "title": "Systems & Automation",
+        "tagline": "Your business runs on systems, not memory.",
+        "description": "Support for the systems and automation work that lets a business run without everything living in one person's head — CRM setup, email automation, SOP documentation, and ad campaign support included.",
+        "included": ["GoHighLevel Builds & Funnels", "Email Automation & CRM Setup", "SOP Documentation", "Meta / TikTok / IG Ad Support"],
     },
 }
 
@@ -166,10 +166,10 @@ CAREERS_PAGE = {
 # "category", "date"} dicts once you have actual openings. Never fake
 # a listing just to fill the page.
 CAREER_CATEGORIES = [
-    "Sales & Business Development",
-    "Operations & Administration",
-    "Marketing & Creative",
-    "Technology & Automation",
+    "Executive & Admin Support",
+    "Finance & Bookkeeping",
+    "Creative & Content",
+    "Systems & Automation",
 ]
 OPEN_ROLES = []
 
@@ -233,7 +233,7 @@ JOB_APPLICATION_FORM = {
         {"type": "tel", "name": "phone", "label": "Phone Number", "required": False},
         {
             "type": "select", "name": "role_interest", "label": "Role you're interested in", "required": True,
-            "options": ["Sales & Business Development", "Operations & Administration", "Marketing & Creative", "Technology & Automation", "Other"],
+            "options": ["Executive & Admin Support", "Finance & Bookkeeping", "Creative & Content", "Systems & Automation", "Other"],
         },
         {"type": "text", "name": "portfolio_url", "label": "LinkedIn or Portfolio URL", "required": False, "placeholder": "linkedin.com/in/yourname"},
         {"type": "text", "name": "resume_url", "label": "Link to your resume/CV", "required": False, "placeholder": "Google Drive, Dropbox, etc."},
@@ -420,6 +420,24 @@ def contact():
 def vision_mission():
     """Render the Vision & Mission page."""
     return render_template("vision_mission.html")
+
+
+@app.route("/how-it-works")
+def how_it_works():
+    """Render the dedicated How It Works page."""
+    return render_template("how_it_works.html")
+
+
+@app.route("/why-work-with-us")
+def why_work_with_us():
+    """Render the dedicated Why Work With Us page."""
+    return render_template("why_work_with_us.html")
+
+
+@app.route("/outsourcing-services")
+def outsourcing_services():
+    """Render the Outsourcing Services overview page (all pillars, expanded)."""
+    return render_template("outsourcing_services.html", pillars=SERVICE_PAGES)
 
 
 @app.route("/faq")

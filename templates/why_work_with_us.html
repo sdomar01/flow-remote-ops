@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block title %}Why Work With Us — Flow Remote Ops{% endblock %}
+{% block description %}Delegation that actually sticks — because we systemize before we staff.{% endblock %}
+
+{% block content %}
+
+<section class="section category-page why-flow">
+  <div class="glow-orb" style="width:420px; height:420px; top:-120px; right:-140px;" aria-hidden="true"></div>
+  <svg class="network-graphic" style="top:20px; right:0; width:340px; height:340px;" viewBox="0 0 340 340" aria-hidden="true">
+    <g stroke="#59A7E7" stroke-width="1" opacity="0.5">
+      <line x1="40" y1="60" x2="150" y2="30"/>
+      <line x1="150" y1="30" x2="260" y2="90"/>
+      <line x1="150" y1="30" x2="120" y2="140"/>
+      <line x1="260" y1="90" x2="220" y2="200"/>
+      <line x1="120" y1="140" x2="220" y2="200"/>
+      <line x1="120" y1="140" x2="60" y2="220"/>
+      <line x1="220" y1="200" x2="280" y2="280"/>
+    </g>
+    <g fill="#59A7E7">
+      <circle cx="40" cy="60" r="3"/>
+      <circle cx="150" cy="30" r="3.5"/>
+      <circle cx="260" cy="90" r="3"/>
+      <circle cx="120" cy="140" r="4"/>
+      <circle cx="220" cy="200" r="3.5"/>
+      <circle cx="60" cy="220" r="2.5"/>
+      <circle cx="280" cy="280" r="3"/>
+    </g>
+  </svg>
+  <div class="section-inner">
+    <p class="eyebrow">About</p>
+    <h1>Delegation that actually sticks</h1>
+    <p class="section-lead">Because we systemize before we staff.</p>
+    <div class="why-grid">
+      <div class="why-item">
+        <h3>Ops audit first</h3>
+        <p>We map your workflows before matching talent — no random VA roulette.</p>
+      </div>
+      <div class="why-item">
+        <h3>SOP-first onboarding</h3>
+        <p>Your processes get documented as we go, so the system survives any single person.</p>
+      </div>
+      <div class="why-item">
+        <h3>30-day guarantee</h3>
+        <p>Wrong fit? We rematch for free.</p>
+      </div>
+      <div class="why-item">
+        <h3>Weekly async reports</h3>
+        <p>You always know what got done — without a single status meeting.</p>
+      </div>
+      <div class="why-item">
+        <h3>One partner, multiple pillars</h3>
+        <p>Admin, finance, creative, and systems — coordinated through a single point of contact.</p>
+      </div>
+      <div class="why-item">
+        <h3>Reliable remote specialists</h3>
+        <p>Pre-vetted people equipped to fit into how your business already operates, not generic freelancers.</p>
+      </div>
+    </div>
+
+    <div class="hero-actions" style="margin-top:2.5em;">
+      <a href="{{ url_for('contact') }}" class="btn btn-primary btn-lg">Book Your Free Ops Audit</a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
