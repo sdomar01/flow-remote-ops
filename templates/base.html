@@ -185,17 +185,65 @@
   </div>
 
   <div class="mobile-nav" id="mobile-nav">
-    <a href="{{ url_for('index') }}#about">About</a>
-    <a href="{{ url_for('vision_mission') }}">About: Vision and Mission</a>
-    <a href="{{ url_for('why_work_with_us') }}">About: Why Work With Us</a>
-    <a href="{{ url_for('outsourcing_services') }}">Employers: Services</a>
-    <a href="{{ url_for('index') }}#who-we-help">Employers: Who We Help</a>
-    <a href="{{ url_for('talents_careers') }}">Talents: Careers</a>
-    <a href="{{ url_for('blog') }}">Explore: Blog</a>
-    <a href="{{ url_for('faq') }}">Explore: FAQ</a>
-    <a href="{{ url_for('contact') }}">Contact Us</a>
+
+    <div class="mobile-nav-group">
+      <button class="mobile-nav-toggle" aria-expanded="false">
+        About
+        <svg class="chevron" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="mobile-nav-panel">
+        <a href="{{ url_for('index') }}#about">About Us</a>
+        <a href="{{ url_for('vision_mission') }}">Vision and Mission</a>
+        <a href="{{ url_for('why_work_with_us') }}">Why Work With Us</a>
+        <a href="{{ url_for('outsourcing_services') }}">Outsourcing Services</a>
+        <a href="{{ url_for('contact') }}">Contact Us</a>
+      </div>
+    </div>
+
+    <div class="mobile-nav-group">
+      <button class="mobile-nav-toggle" aria-expanded="false">
+        Employers
+        <svg class="chevron" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="mobile-nav-panel">
+        <a href="{{ url_for('service_page', slug='executive-admin-support') }}">Executive &amp; Admin Support</a>
+        <a href="{{ url_for('service_page', slug='finance-bookkeeping') }}">Finance &amp; Bookkeeping</a>
+        <a href="{{ url_for('service_page', slug='creative-content') }}">Creative &amp; Content</a>
+        <a href="{{ url_for('service_page', slug='systems-automation') }}">Systems &amp; Automation</a>
+        <a href="{{ url_for('index') }}#who-we-help">Who We Help</a>
+        <a href="{{ url_for('how_it_works') }}">How It Works</a>
+      </div>
+    </div>
+
+    <div class="mobile-nav-group">
+      <button class="mobile-nav-toggle" aria-expanded="false">
+        Talents
+        <svg class="chevron" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="mobile-nav-panel">
+        <a href="{{ url_for('talents_careers') }}">Careers</a>
+        <a href="{{ url_for('talents_application_process') }}">Application Process</a>
+        <a href="{{ url_for('talents_work_life_balance') }}">Work-Life Balance</a>
+        <a href="{{ url_for('talents_job_application_form') }}">Job Application Form</a>
+        <a href="{{ url_for('talents_candidate_inquiry_form') }}">Candidate Inquiry Form</a>
+        <a href="{{ url_for('talents_candidate_referral_form') }}">Candidate Referral Form</a>
+      </div>
+    </div>
+
+    <div class="mobile-nav-group">
+      <button class="mobile-nav-toggle" aria-expanded="false">
+        Explore
+        <svg class="chevron" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="mobile-nav-panel">
+        <a href="{{ url_for('blog') }}">Blog</a>
+        <a href="{{ url_for('faq') }}">FAQ</a>
+      </div>
+    </div>
+
+    <a href="{{ url_for('contact') }}" class="mobile-nav-link-plain">Contact Us</a>
     <!-- placeholder -- swap in your real calendar link (Calendly, cal.com, etc.) -->
-    <a href="#" class="btn btn-primary">Book a Meeting</a>
+    <a href="#" class="btn btn-primary mobile-nav-cta">Book a Meeting</a>
   </div>
 </header>
 
@@ -206,10 +254,12 @@
 <footer class="site-footer">
   <div class="footer-inner">
 
-    <div class="footer-col footer-brand-col">
+    <div class="footer-brand-row">
       <img src="{{ url_for('static', filename='images/favicon.png') }}" alt="Flow Remote Ops" class="logo-img footer-logo-img">
       <p>People. Process. Performance.</p>
     </div>
+
+    <div class="footer-columns">
 
     <div class="footer-col">
       <p class="footer-col-heading">Company</p>
@@ -248,6 +298,7 @@
       <a href="mailto:hello@flowremoteops.com">hello@flowremoteops.com</a>
     </div>
 
+    </div>
   </div>
 
   <div class="footer-bottom">

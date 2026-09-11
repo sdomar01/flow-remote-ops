@@ -23,6 +23,28 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  /* ---------- Mobile nav accordion groups (About, Employers, Talents, Explore) ---------- */
+  document.querySelectorAll('.mobile-nav-toggle').forEach(function (toggle) {
+    var panel = toggle.nextElementSibling;
+    if (!panel) return;
+
+    toggle.addEventListener('click', function () {
+      var isOpen = toggle.getAttribute('aria-expanded') === 'true';
+
+      // Close any other open group first
+      document.querySelectorAll('.mobile-nav-toggle').forEach(function (other) {
+        if (other !== toggle) {
+          other.setAttribute('aria-expanded', 'false');
+          var otherPanel = other.nextElementSibling;
+          if (otherPanel) otherPanel.style.maxHeight = null;
+        }
+      });
+
+      toggle.setAttribute('aria-expanded', String(!isOpen));
+      panel.style.maxHeight = isOpen ? null : panel.scrollHeight + 'px';
+    });
+  });
+
   /* ---------- Nav dropdowns (Services, About) ---------- */
   function initDropdown(triggerId, dropdownId) {
     var trigger = document.getElementById(triggerId);
@@ -87,13 +109,10 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  /* ---------- Lead form (on the /contact page) ---------- */
-  var leadForm = document.getElementById('lead-form');
-  var leadFormSuccess = document.getElementById('lead-form-success');
-
-  /* ---------- Lead form submit ----------
-     This form doesn't send anywhere yet -- it's a placeholder until
-     you connect it to a real destination. Two common options:
+  /* ---------- Forms (Contact page + Talents forms) ----------
+     Every form with class "lead-form" is handled the same way. Each
+     doesn't send anywhere yet -- it's a placeholder until you connect
+     it to a real destination. Two common options:
 
      1) Google Forms: create your form, then map each <input name="...">
         below to the matching entry.XXXXXXX field name from your Google
@@ -106,22 +125,28 @@ document.addEventListener('DOMContentLoaded', function () {
   ---------------------------------------------------------------- */
   function submitLeadForm(formData) {
     // TODO: replace with a real request once you have a destination.
-    console.log('Lead form submitted (not yet connected):', Object.fromEntries(formData));
+    console.log('Form submitted (not yet connected):', Object.fromEntries(formData));
     return Promise.resolve();
   }
 
-  if (leadForm) {
-    leadForm.addEventListener('submit', function (e) {
-      e.preventDefault();
-      if (!leadForm.reportValidity()) return;
+  document.querySelectorAll('form.lead-form').forEach(function (form) {
+    // Success element is either a specific #lead-form-success (contact
+    // page) or the nearest .lead-form-success sibling (Talents forms).
+    var success = document.getElementById(form.id + '-success')
+      || (form.parentElement ? form.parentElement.querySelector('.lead-form-success') : null)
+      || document.getElementById('lead-form-success');
 
-      var formData = new FormData(leadForm);
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!form.reportValidity()) return;
+
+      var formData = new FormData(form);
       submitLeadForm(formData).then(function () {
-        leadForm.hidden = true;
-        if (leadFormSuccess) leadFormSuccess.hidden = false;
+        form.hidden = true;
+        if (success) success.hidden = false;
       });
     });
-  }
+  });
 
   /* ---------- Sticky header shadow on scroll ---------- */
   var header = document.getElementById('site-header');
@@ -135,5 +160,27 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   window.addEventListener('scroll', handleScroll, { passive: true });
   handleScroll();
+
+  /* ---------- Scroll-reveal animations ---------- */
+  var revealSelector = '.why-item, .service-group, .who-card, .funnel-item, .role-item, .process-line li, .category-items, .founder-note, .vm-block';
+  var revealEls = document.querySelectorAll(revealSelector);
+
+  if ('IntersectionObserver' in window && revealEls.length) {
+    revealEls.forEach(function (el, i) {
+      el.classList.add('reveal');
+      el.style.transitionDelay = (i % 6) * 0.06 + 's';
+    });
+
+    var revealObserver = new IntersectionObserver(function (entries, observer) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    revealEls.forEach(function (el) { revealObserver.observe(el); });
+  }
 
 });
