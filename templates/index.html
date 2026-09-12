@@ -2,8 +2,8 @@
 
 {% block content %}
   <!-- HERO -->
-  <section class="hero" id="top">
-    <div class="hero-flow-graphic" aria-hidden="true">
+  <section class="hero hero-centered" id="top">
+    <div class="hero-flow-graphic hero-flow-graphic-bg" aria-hidden="true">
       <svg viewBox="0 0 600 700" preserveAspectRatio="xMidYMid meet">
         <path d="M520 40 C420 40 330 90 270 190 L270 310 C340 190 430 130 520 130 Z" fill="url(#heroGrad1)"/>
         <path d="M420 220 C310 220 210 280 150 400 L150 560 C220 420 320 330 420 300 Z" fill="url(#heroGrad2)"/>
@@ -20,12 +20,16 @@
       </svg>
     </div>
 
-    <div class="hero-inner">
+    <div class="hero-inner hero-inner-centered">
       <p class="eyebrow">Operations, systemized</p>
-      <h1>We run the back end. You build the business.</h1>
+      <h1 class="typewriter-heading">
+        <span id="typewriter-text"></span><span class="typewriter-cursor" aria-hidden="true">|</span>
+        <span class="sr-only" id="typewriter-fallback">We run the back end. You build the business.</span>
+        <noscript>We run the back end. You build the business.</noscript>
+      </h1>
       <p class="hero-lead">Flow Remote Ops gives founders in the US, UK, and Australia reliable, pre-vetted remote specialists, documented processes, and automation — so the business runs on systems, not on you.</p>
       <p class="hero-sub">Admin, bookkeeping, content, and systems — matched to your actual bottleneck, not a generic assistant.</p>
-      <div class="hero-actions">
+      <div class="hero-actions hero-actions-centered">
         <a href="{{ url_for('contact') }}" class="btn btn-primary btn-lg">Book Your Free Ops Audit</a>
       </div>
     </div>
@@ -53,10 +57,6 @@
           <h3>Grow</h3>
           <p>Your remote team gets to work, with support from Flow Remote Ops along the way as your needs change.</p>
         </div>
-      </div>
-
-      <div class="hero-actions" style="margin-top:2.2em;">
-        <a href="{{ url_for('contact') }}" class="btn btn-primary btn-lg">Book Your Free Ops Audit</a>
       </div>
     </div>
   </section>
@@ -93,57 +93,6 @@
         <div class="who-card">Coaches &amp; Consultants</div>
         <div class="who-card">Professional Services</div>
         <div class="who-card">Startups</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section class="section about" id="about">
-    <div class="section-inner narrow">
-      <h2>Reliable people. Documented systems.</h2>
-      <p>Flow Remote Ops gives you a pre-vetted remote specialist matched to your actual bottleneck, onboarded through documented SOPs — so the process survives any single person, and you delegate with confidence instead of anxiety.</p>
-
-      <blockquote class="founder-note">
-        <p>"I'm Igi Villacampa — IPV. Since 2019 I've worked inside businesses at every layer of operations: building a construction startup's SOPs from scratch, then e-commerce, customer support, executive assistance, bookkeeping, GHL automation, and ad campaigns. I've seen the same pattern everywhere: founders stuck doing back-end work instead of growing their business. And I've seen what fixes it — reliable people plus documented systems. With the right SOPs, even employee turnover stops being a crisis, because the process survives the person. I built Flow Remote Ops to give founders that foundation: real operators at your back end, systems that outlast any single hire, and your time returned to what only you can do."</p>
-        <cite>— Igi Villacampa (IPV), Founder</cite>
-      </blockquote>
-    </div>
-  </section>
-
-  <!-- CONTACT TEASER -->
-  <section class="section contact" id="contact">
-    <div class="section-inner">
-      <div class="contact-grid">
-
-        <div class="contact-copy">
-          <p class="eyebrow">Get in touch</p>
-          <h2>Let's build your remote team.</h2>
-          <p class="section-lead">Tell us a bit about your business and the kind of support you're looking for. This isn't a generic contact form — think of it as the start of a short consultation.</p>
-
-          <ul class="contact-benefits">
-            <li>
-              <span class="contact-benefit-icon" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="M4 15V8a6 6 0 0112 0v7M2 15h16M6 15v2a1 1 0 001 1h6a1 1 0 001-1v-2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-              <span>Reliable remote specialists matched to the work you actually need done</span>
-            </li>
-            <li>
-              <span class="contact-benefit-icon" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="M10 2l1.6 3.9L16 6.5l-3 2.9.9 4.1-3.9-2-3.9 2 .9-4.1-3-2.9 4.4-.6z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg></span>
-              <span>No large in-house team to build or manage — start with one role, scale later</span>
-            </li>
-            <li>
-              <span class="contact-benefit-icon" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7.3" stroke="currentColor" stroke-width="1.5"/><path d="M10 6v4l3 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-              <span>One partner coordinating sales, operations, admin, and specialized support</span>
-            </li>
-          </ul>
-        </div>
-
-        <div class="contact-form-panel">
-          <div class="form-embed-placeholder">
-            <p><strong>Ready when you are.</strong></p>
-            <p>Tell us about your business and the support you need — takes about two minutes.</p>
-            <a href="{{ url_for('contact') }}" class="btn btn-primary btn-lg">Book Your Free Ops Audit</a>
-          </div>
-        </div>
-
       </div>
     </div>
   </section>

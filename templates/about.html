@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block title %}Company and Team — Flow Remote Ops{% endblock %}
+{% block description %}Meet Flow Remote Ops — reliable people, documented systems, and the team behind it.{% endblock %}
+
+{% block content %}
+
+<section class="section category-page">
+  <div class="glow-orb" style="width:420px; height:420px; top:-160px; right:-160px;" aria-hidden="true"></div>
+  <div class="section-inner narrow">
+    <p class="eyebrow">Company and Team</p>
+    <h1>Reliable people. Documented systems.</h1>
+    <p class="section-lead">Flow Remote Ops gives you a pre-vetted remote specialist matched to your actual bottleneck, onboarded through documented SOPs — so the process survives any single person, and you delegate with confidence instead of anxiety.</p>
+
+    <div class="vm-block">
+      <h2>Who we are</h2>
+      <p>Flow Remote Ops is a remote staffing and operations company. We connect founders in the US, UK, and Australia with pre-vetted remote specialists across four pillars — Executive &amp; Admin Support, Finance &amp; Bookkeeping, Creative &amp; Content, and Systems &amp; Automation — backed by documented SOPs and a 30-day performance guarantee.</p>
+      <p>Rather than handing off a generic assistant, we run an ops audit first, match the right specialist to the actual bottleneck, and document the process as we go — so the system holds up even as your business changes.</p>
+    </div>
+
+    <blockquote class="founder-note">
+      <p>"I'm Igi Villacampa — IPV. Since 2019 I've worked inside businesses at every layer of operations: building a construction startup's SOPs from scratch, then e-commerce, customer support, executive assistance, bookkeeping, GHL automation, and ad campaigns. I've seen the same pattern everywhere: founders stuck doing back-end work instead of growing their business. And I've seen what fixes it — reliable people plus documented systems. With the right SOPs, even employee turnover stops being a crisis, because the process survives the person. I built Flow Remote Ops to give founders that foundation: real operators at your back end, systems that outlast any single hire, and your time returned to what only you can do."</p>
+      <cite>— Igi Villacampa (IPV), Founder</cite>
+    </blockquote>
+  </div>
+</section>
+
+<section class="section team-section">
+  <div class="section-inner">
+    <h2>The team</h2>
+    <p class="section-lead">The people behind Flow Remote Ops.</p>
+
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-avatar" aria-hidden="true"></div>
+        <p class="team-name">Igi PV</p>
+        <p class="team-role">Founder</p>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar" aria-hidden="true"></div>
+        <p class="team-name">Sadhan DO</p>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar" aria-hidden="true"></div>
+        <p class="team-name">Weistein Joe</p>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar" aria-hidden="true"></div>
+        <p class="team-name">Ian John Q.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section vision-mission-cta">
+  <div class="section-inner narrow" style="text-align:center;">
+    <h2>Get your time back.</h2>
+    <div class="hero-actions" style="justify-content:center;">
+      <a href="{{ url_for('contact') }}" class="btn btn-primary btn-lg">Book Your Free Ops Audit</a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

@@ -416,6 +416,12 @@ def contact():
     return render_template("contact.html")
 
 
+@app.route("/about")
+def about():
+    """Render the dedicated About Us page."""
+    return render_template("about.html")
+
+
 @app.route("/vision-and-mission")
 def vision_mission():
     """Render the Vision & Mission page."""

@@ -4,6 +4,23 @@ document.addEventListener('DOMContentLoaded', function () {
   var yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
+  /* ---------- Hero typewriter effect ---------- */
+  var typeTarget = document.getElementById('typewriter-text');
+  if (typeTarget) {
+    var fullText = 'We run the back end. You build the business.';
+    var typeIndex = 0;
+    var typeSpeed = 38; // ms per character
+
+    function typeNextChar() {
+      if (typeIndex <= fullText.length) {
+        typeTarget.textContent = fullText.slice(0, typeIndex);
+        typeIndex++;
+        setTimeout(typeNextChar, typeSpeed);
+      }
+    }
+    typeNextChar();
+  }
+
   /* ---------- Mobile menu ---------- */
   var menuToggle = document.getElementById('menu-toggle');
   var mobileNav = document.getElementById('mobile-nav');
