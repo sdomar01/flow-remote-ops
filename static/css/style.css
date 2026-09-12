@@ -108,7 +108,6 @@ img, svg { display: block; max-width: 100%; }
   z-index: 1;
 }
 .section-inner.narrow { max-width: 760px; }
-.text-center { text-align: center; }
 
 .section {
   padding: 96px 0;
