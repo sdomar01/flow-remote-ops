@@ -10,14 +10,15 @@
 <!-- About Us summary, used for search engines and link previews -->
 <meta name="about" content="Flow Remote Ops helps founders in the US, UK, and Australia build and scale their businesses without drowning in operations, through pre-vetted remote specialists, systemized SOPs, and automation.">
 
-<meta property="og:title" content="{% block og_title %}Flow Remote Ops — We Run the Back End. You Build the Business.{% endblock %}">
-<meta property="og:description" content="{% block og_description %}Reliable, pre-vetted remote specialists, systemized SOPs, and automation — so founders get their time back.{% endblock %}">
+<meta property="og:title" content="{% block og_title %}{{ self.title() }}{% endblock %}">
+<meta property="og:description" content="{% block og_description %}{{ self.description() }}{% endblock %}">
 <meta property="og:type" content="website">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+{% block schema %}{% endblock %}
 </head>
 <body>
 
@@ -295,7 +296,7 @@
 
       <p class="footer-col-heading footer-contact-heading">Get in touch</p>
       <!-- placeholder contact details -- replace with your real ones -->
-      <a href="mailto:hello@flowremoteops.com">hello@flowremoteops.com</a>
+      <a href="mailto:info@flowremoteops.com">info@flowremoteops.com</a>
     </div>
 
     </div>

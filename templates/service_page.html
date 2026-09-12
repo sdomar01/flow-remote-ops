@@ -25,8 +25,17 @@
     {% endif %}
 
     <div class="hero-actions">
-      <a href="{{ url_for('contact') }}" class="btn btn-primary btn-lg">Build Your Remote Team</a>
-      <a href="{{ url_for('index') }}#services" class="btn btn-ghost btn-lg">See all services</a>
+      <a href="{{ url_for('contact') }}" class="btn btn-primary btn-lg">Book Your Free Ops Audit</a>
+      <a href="{{ url_for('outsourcing_services') }}" class="btn btn-ghost btn-lg">See all services</a>
+    </div>
+
+    <div class="vm-block">
+      <p class="dropdown-heading">Who this helps most</p>
+      <p>
+        <a href="{{ url_for('who_we_help_page', slug='growing-businesses') }}">Growing Businesses</a> ·
+        <a href="{{ url_for('who_we_help_page', slug='agencies') }}">Agencies</a> ·
+        <a href="{{ url_for('who_we_help_page', slug='startups') }}">Startups</a>
+      </p>
     </div>
   </div>
 </section>

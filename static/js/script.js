@@ -4,21 +4,40 @@ document.addEventListener('DOMContentLoaded', function () {
   var yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  /* ---------- Hero typewriter effect ---------- */
-  var typeTarget = document.getElementById('typewriter-text');
-  if (typeTarget) {
-    var fullText = 'We run the back end. You build the business.';
-    var typeIndex = 0;
-    var typeSpeed = 38; // ms per character
+  /* ---------- Hero typewriter effect (two lines) ---------- */
+  var line1El = document.getElementById('typewriter-line1');
+  var line2El = document.getElementById('typewriter-line2');
+  var cursor1 = document.getElementById('cursor-line1');
+  var cursor2 = document.getElementById('cursor-line2');
 
-    function typeNextChar() {
-      if (typeIndex <= fullText.length) {
-        typeTarget.textContent = fullText.slice(0, typeIndex);
-        typeIndex++;
-        setTimeout(typeNextChar, typeSpeed);
+  if (line1El && line2El) {
+    var line1Text = 'WE RUN THE BACK END';
+    var line2Text = 'YOU BUILD THE BUSINESS';
+    var typeSpeed = 42; // ms per character
+    var idx1 = 0;
+    var idx2 = 0;
+
+    function typeLine1() {
+      if (idx1 <= line1Text.length) {
+        line1El.textContent = line1Text.slice(0, idx1);
+        idx1++;
+        setTimeout(typeLine1, typeSpeed);
+      } else {
+        if (cursor1) cursor1.style.display = 'none';
+        if (cursor2) cursor2.style.display = 'inline-block';
+        setTimeout(typeLine2, 150);
       }
     }
-    typeNextChar();
+
+    function typeLine2() {
+      if (idx2 <= line2Text.length) {
+        line2El.textContent = line2Text.slice(0, idx2);
+        idx2++;
+        setTimeout(typeLine2, typeSpeed);
+      }
+    }
+
+    typeLine1();
   }
 
   /* ---------- Mobile menu ---------- */

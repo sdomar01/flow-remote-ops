@@ -108,6 +108,7 @@ img, svg { display: block; max-width: 100%; }
   z-index: 1;
 }
 .section-inner.narrow { max-width: 760px; }
+.text-center { text-align: center; }
 
 .section {
   padding: 96px 0;
@@ -547,7 +548,10 @@ img, svg { display: block; max-width: 100%; }
   line-height: 1.1;
 }
 
-.typewriter-heading { min-height: 2.4em; }
+.typewriter-heading { min-height: 2.6em; text-transform: uppercase; }
+.hero-line-gold { color: var(--primary); }
+.hero-line-white { color: var(--text-primary); }
+
 .typewriter-cursor {
   display: inline-block;
   color: var(--accent);

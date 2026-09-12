@@ -3,6 +3,73 @@
 {% block title %}FAQ — Flow Remote Ops{% endblock %}
 {% block description %}Answers to common questions about building a remote team with Flow Remote Ops.{% endblock %}
 
+{% block schema %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What types of remote specialists can you provide?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We provide remote specialists across four pillars: Executive & Admin Support, Finance & Bookkeeping, Creative & Content, and Systems & Automation — including combinations tailored to a specific role."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you build a team around our specific requirements?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. We start by understanding your workload and goals, then match specialists — or build a small team — around what your business specifically needs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you provide part-time and full-time support?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Both are available. We'll help you determine the right arrangement based on the scope of work and your budget."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What industries do you work with?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We primarily support small and medium-sized businesses, startups, agencies, SaaS companies, coaches and consultants, real estate businesses, professional service companies, and e-commerce businesses."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does the onboarding process work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "After an initial conversation about your needs, we match the right specialist or team and coordinate the handoff so they can start on the work with minimal ramp-up time from you."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can we start with one specialist and scale later?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — many businesses start with a single role and expand their remote team as needs grow. There's no requirement to commit to a large team upfront."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do we get started?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Reach out through the Book Your Free Ops Audit form with a bit about your business and what kind of support you're looking for, and we'll take it from there."
+      }
+    }
+  ]
+}
+</script>
+{% endblock %}
+
 {% block content %}
 
   <!-- FAQ -->
@@ -21,7 +88,7 @@
             </button>
           </h3>
           <div class="accordion-panel">
-            <p>We provide remote specialists across sales and business development, operations and administration, marketing and creative, and technology and automation — including combinations tailored to a specific role.</p>
+            <p>We provide remote specialists across four pillars: <a href="{{ url_for('outsourcing_services') }}">Executive &amp; Admin Support, Finance &amp; Bookkeeping, Creative &amp; Content, and Systems &amp; Automation</a> — including combinations tailored to a specific role.</p>
           </div>
         </div>
 
@@ -93,7 +160,7 @@
             </button>
           </h3>
           <div class="accordion-panel">
-            <p>Reach out through the "Build Your Remote Team" form with a bit about your business and what kind of support you're looking for, and we'll take it from there.</p>
+            <p>Reach out through the "Book Your Free Ops Audit" form with a bit about your business and what kind of support you're looking for, and we'll take it from there.</p>
           </div>
         </div>
 

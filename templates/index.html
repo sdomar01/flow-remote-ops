@@ -1,5 +1,24 @@
 {% extends "base.html" %}
 
+{% block schema %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Flow Remote Ops",
+  "url": "{{ request.url_root }}",
+  "logo": "{{ url_for('static', filename='images/favicon.png', _external=True) }}",
+  "description": "Flow Remote Ops gives founders in the US, UK, and Australia reliable, pre-vetted remote specialists, documented processes, and automation.",
+  "areaServed": ["US", "GB", "AU"],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "info@flowremoteops.com",
+    "contactType": "customer service"
+  }
+}
+</script>
+{% endblock %}
+
 {% block content %}
   <!-- HERO -->
   <section class="hero hero-centered" id="top">
@@ -23,9 +42,9 @@
     <div class="hero-inner hero-inner-centered">
       <p class="eyebrow">Operations, systemized</p>
       <h1 class="typewriter-heading">
-        <span id="typewriter-text"></span><span class="typewriter-cursor" aria-hidden="true">|</span>
-        <span class="sr-only" id="typewriter-fallback">We run the back end. You build the business.</span>
-        <noscript>We run the back end. You build the business.</noscript>
+        <span class="hero-line hero-line-gold" id="typewriter-line1"></span><span class="typewriter-cursor" id="cursor-line1" aria-hidden="true">|</span><br>
+        <span class="hero-line hero-line-white" id="typewriter-line2"></span><span class="typewriter-cursor" id="cursor-line2" aria-hidden="true" style="display:none;">|</span>
+        <noscript>WE RUN THE BACK END. YOU BUILD THE BUSINESS.</noscript>
       </h1>
       <p class="hero-lead">Flow Remote Ops gives founders in the US, UK, and Australia reliable, pre-vetted remote specialists, documented processes, and automation — so the business runs on systems, not on you.</p>
       <p class="hero-sub">Admin, bookkeeping, content, and systems — matched to your actual bottleneck, not a generic assistant.</p>

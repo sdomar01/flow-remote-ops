@@ -22,9 +22,14 @@ Run locally:
 Then visit http://localhost:5000
 """
 
-from flask import Flask, render_template, abort
+from flask import Flask, render_template, abort, Response
 
 app = Flask(__name__)
+
+# The real domain, once flowremoteops.com (or similar) is live and pointed
+# at this app. Used to build absolute URLs in the sitemap. Update this the
+# day the custom domain goes live.
+SITE_URL = "https://flowremoteops.com"
 
 # ----------------------------------------------------------------------
 # Service category pages (Employers dropdown > Services column)
@@ -408,6 +413,50 @@ COOKIE_POLICY = {
 def index():
     """Render the landing page."""
     return render_template("index.html")
+
+
+@app.route("/robots.txt")
+def robots_txt():
+    """Serve robots.txt -- keep form pages out of the crawl budget."""
+    lines = [
+        "User-agent: *",
+        "Allow: /",
+        "Disallow: /talents/job-application-form",
+        "Disallow: /talents/candidate-inquiry-form",
+        "Disallow: /talents/candidate-referral-form",
+        f"Sitemap: {SITE_URL}/sitemap.xml",
+    ]
+    return Response("\n".join(lines), mimetype="text/plain")
+
+
+@app.route("/sitemap.xml")
+def sitemap_xml():
+    """Generate sitemap.xml from the site's actual routes.
+
+    Talent application/inquiry/referral forms are intentionally excluded
+    (they're disallowed in robots.txt too) since they're not ranking
+    targets.
+    """
+    static_paths = [
+        "/", "/contact", "/about", "/vision-and-mission", "/how-it-works",
+        "/why-work-with-us", "/outsourcing-services", "/faq", "/blog",
+        "/terms-of-service", "/privacy-policy", "/cookie-policy",
+        "/talents/careers", "/talents/application-process", "/talents/work-life-balance",
+    ]
+    service_paths = [f"/services/{slug}" for slug in SERVICE_PAGES]
+    who_we_help_paths = [f"/who-we-help/{slug}" for slug in WHO_WE_HELP_PAGES]
+    all_paths = static_paths + service_paths + who_we_help_paths
+
+    urls_xml = "".join(
+        f"<url><loc>{SITE_URL}{path}</loc></url>" for path in all_paths
+    )
+    xml = (
+        '<?xml version="1.0" encoding="UTF-8"?>'
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
+        f"{urls_xml}"
+        "</urlset>"
+    )
+    return Response(xml, mimetype="application/xml")
 
 
 @app.route("/contact")
