@@ -146,23 +146,39 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   /* ---------- Forms (Contact page + Talents forms) ----------
-     Every form with class "lead-form" is handled the same way. Each
-     doesn't send anywhere yet -- it's a placeholder until you connect
-     it to a real destination. Two common options:
+     All 4 forms (lead form, job application, candidate inquiry,
+     candidate referral) share one Google Sheets webhook. Each form
+     includes a hidden "form_type" field so the Apps Script knows which
+     sheet tab to write the row to.
 
-     1) Google Forms: create your form, then map each <input name="...">
-        below to the matching entry.XXXXXXX field name from your Google
-        Form's HTML, and POST to its .../formResponse URL.
-     2) Your own backend: add a Flask route in app.py that accepts
-        this data (e.g. POST /submit-lead) and call it here with fetch().
-
-     For now, submitting just shows a success message so you can see
-     the full flow working end to end.
+     Paste your Apps Script Web App URL below once you've deployed it
+     (see the setup steps -- Google Sheet with 4 tabs: Leads, Job
+     Applications, Candidate Inquiries, Candidate Referrals -- plus the
+     Apps Script doPost() code that routes by form_type).
   ---------------------------------------------------------------- */
+  var GOOGLE_SHEET_WEBHOOK_URL = 'PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE';
+
   function submitLeadForm(formData) {
-    // TODO: replace with a real request once you have a destination.
-    console.log('Form submitted (not yet connected):', Object.fromEntries(formData));
-    return Promise.resolve();
+    var isPlaceholder = GOOGLE_SHEET_WEBHOOK_URL.indexOf('PASTE_YOUR') !== -1;
+
+    if (isPlaceholder) {
+      // Not connected yet -- log to console so you can still see the
+      // full flow working end to end.
+      console.log('Form submitted (Google Sheet not connected yet):', Object.fromEntries(formData));
+      return Promise.resolve();
+    }
+
+    // Apps Script Web Apps don't return CORS headers we can read from
+    // the browser, so we POST with mode: 'no-cors'. The submission
+    // still reaches the sheet -- we just can't read the response body,
+    // which is fine since we already show our own success message.
+    return fetch(GOOGLE_SHEET_WEBHOOK_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      body: formData
+    }).catch(function (err) {
+      console.error('Lead form submission failed:', err);
+    });
   }
 
   document.querySelectorAll('form.lead-form').forEach(function (form) {

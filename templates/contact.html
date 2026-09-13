@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}Build Your Remote Team — Flow Remote Ops{% endblock %}
+{% block title %}Book Your Free Ops Audit — Flow Remote Ops{% endblock %}
 {% block description %}Tell us about your business and the support you need. Flow Remote Ops will follow up to talk through the right remote team for you.{% endblock %}
 
 {% block content %}
@@ -17,6 +17,7 @@
 
       <div class="contact-form-box">
         <form id="lead-form" class="lead-form" novalidate>
+          <input type="hidden" name="form_type" value="lead">
 
           <div class="field">
             <label for="lf-name">Name <span aria-hidden="true">*</span></label>
@@ -49,11 +50,11 @@
               <label for="lf-support">Type of support needed <span aria-hidden="true">*</span></label>
               <select id="lf-support" name="support_type" required>
                 <option value="" disabled selected>Select one</option>
-                <option>Sales &amp; Business Development</option>
-                <option>Operations &amp; Administration</option>
-                <option>Marketing &amp; Creative</option>
-                <option>Technology &amp; Automation</option>
-                <option>Not sure yet / general staffing</option>
+                <option>Executive &amp; Admin Support</option>
+                <option>Finance &amp; Bookkeeping</option>
+                <option>Creative &amp; Content</option>
+                <option>Systems &amp; Automation</option>
+                <option>Not sure yet / LAUNCH package</option>
               </select>
             </div>
             <div class="field">

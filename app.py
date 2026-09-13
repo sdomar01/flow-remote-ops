@@ -232,6 +232,7 @@ JOB_APPLICATION_FORM = {
     "title": "Job Application Form",
     "tagline": "Tell us about your background and the kind of role you're looking for.",
     "form_id": "job-application-form",
+    "form_type": "job_application",
     "fields": [
         {"type": "text", "name": "full_name", "label": "Full Name", "required": True},
         {"type": "email", "name": "email", "label": "Email", "required": True},
@@ -254,6 +255,7 @@ CANDIDATE_INQUIRY_FORM = {
     "title": "Candidate Inquiry Form",
     "tagline": "Have a question before applying? Ask here.",
     "form_id": "candidate-inquiry-form",
+    "form_type": "candidate_inquiry",
     "fields": [
         {"type": "text", "name": "full_name", "label": "Name", "required": True},
         {"type": "email", "name": "email", "label": "Email", "required": True},
@@ -265,6 +267,7 @@ CANDIDATE_REFERRAL_FORM = {
     "title": "Candidate Referral Form",
     "tagline": "Know someone who'd be a great fit? Let us know.",
     "form_id": "candidate-referral-form",
+    "form_type": "candidate_referral",
     "fields": [
         {"type": "text", "name": "referrer_name", "label": "Your Name", "required": True},
         {"type": "email", "name": "referrer_email", "label": "Your Email", "required": True},
