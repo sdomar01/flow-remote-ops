@@ -20,12 +20,12 @@
           <input type="hidden" name="form_type" value="lead">
 
           <div class="field">
-            <label for="lf-name">Name <span aria-hidden="true">*</span></label>
+            <label for="lf-name">Full Name <span aria-hidden="true">*</span></label>
             <input type="text" id="lf-name" name="name" required autocomplete="name">
           </div>
 
           <div class="field">
-            <label for="lf-email">Work Email <span aria-hidden="true">*</span></label>
+            <label for="lf-email">Email <span aria-hidden="true">*</span></label>
             <input type="email" id="lf-email" name="email" required autocomplete="email">
           </div>
 
@@ -69,22 +69,30 @@
             </div>
           </div>
 
-          <fieldset class="field radio-field">
-            <legend>Full-time or part-time?</legend>
-            <label class="radio-option"><input type="radio" name="engagement" value="Full-time"> Full-time</label>
-            <label class="radio-option"><input type="radio" name="engagement" value="Part-time"> Part-time</label>
-            <label class="radio-option"><input type="radio" name="engagement" value="Not sure"> Not sure yet</label>
-          </fieldset>
+<!--  Change the field into dropdown Line 74-95 -->
 
-          <fieldset class="field radio-field">
-            <legend>How big is your company?</legend>
-            <label class="radio-option"><input type="radio" name="company_size" value="1-2 staff"> 1-2 staff</label>
-            <label class="radio-option"><input type="radio" name="company_size" value="3-10 staff"> 3-10 staff</label>
-            <label class="radio-option"><input type="radio" name="company_size" value="11-20 staff"> 11-20 staff</label>
-            <label class="radio-option"><input type="radio" name="company_size" value="21-50 staff"> 21-50 staff</label>
-            <label class="radio-option"><input type="radio" name="company_size" value="50-100 staff"> 50-100 staff</label>
-            <label class="radio-option"><input type="radio" name="company_size" value="100+ staff"> 100+ staff</label>
-          </fieldset>
+          <div class="field">
+            <label for="lf-engagement">Full-time or part-time?</label>
+            <select id="lf-engagement" name="engagement">
+              <option value="" disabled selected>Select one</option>
+              <option>Full-time</option>
+              <option>Part-time</option>
+              <option>Not sure yet</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="lf-company-size">How big is your company?</label>
+            <select id="lf-company-size" name="company_size">
+              <option value="" disabled selected>Select one</option>
+              <option>1-2 staff</option>
+              <option>3-10 staff</option>
+              <option>11-20 staff</option>
+              <option>21-50 staff</option>
+              <option>50-100 staff</option>
+              <option>100+ staff</option>
+            </select>
+          </div>
 
           <div class="field">
             <label for="lf-message">Anything else you'd like to discuss?</label>
@@ -98,14 +106,9 @@
 
           <button type="submit" class="btn btn-primary btn-lg lead-form-submit">Submit inquiry</button>
 
-          <p class="lead-form-note">
-            This form currently doesn't send anywhere yet — connect it to your Google Form or backend of choice.
-            See <code>submitLeadForm()</code> in <code>static/js/script.js</code>.
-          </p>
-        </form>
-
-        <div class="lead-form-success" id="lead-form-success" hidden>
-          <h3>Thanks — we've got it.</h3>
+        <div class="lead-form-success" id="lead-form-success" role="dialog" aria-modal="true" aria-labelledby="lead-form-success-title" hidden>
+          <button type="button" class="lead-form-success-close" aria-label="Close confirmation">&times;</button>
+          <h3 id="lead-form-success-title">Thanks — we've got it.</h3>
           <p>Someone from Flow Remote Ops will follow up shortly to talk through the right fit for your business.</p>
         </div>
       </div>

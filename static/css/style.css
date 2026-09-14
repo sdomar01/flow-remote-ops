@@ -294,22 +294,11 @@ img, svg { display: block; max-width: 100%; }
   transition: opacity 0.18s var(--ease), transform 0.18s var(--ease), visibility 0.18s;
   z-index: 90;
 }
-.services-dropdown.open,
-.services-dropdown:hover {
+.services-dropdown.open {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
   transform: translateX(-50%) translateY(0);
-}
-
-/* Hover-to-open on desktop -- click still works too (keyboard/touch) */
-@media (min-width: 961px) {
-  .nav-item:hover .services-dropdown {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-    transform: translateX(-50%) translateY(0);
-  }
 }
 
 .dropdown-inner { padding: 28px; }
@@ -543,7 +532,6 @@ img, svg { display: block; max-width: 100%; }
 
 .hero-centered h1 {
   max-width: none;
-  font-size: clamp(2.6rem, 5.4vw, 4.4rem);
   line-height: 1.1;
 }
 
@@ -1026,7 +1014,7 @@ img, svg { display: block; max-width: 100%; }
 
 .team-card {
   text-align: center;
-  padding: 24px 16px;
+  padding: 60px 2px;
   background: var(--card-bg);
   border: 1px solid var(--card-border);
   border-radius: var(--radius-lg);
@@ -1035,12 +1023,17 @@ img, svg { display: block; max-width: 100%; }
 .team-card:hover { transform: translateY(-4px); border-color: rgba(89,167,231,0.3); }
 
 .team-avatar {
-  width: 84px;
-  height: 84px;
+  width: 100px;
+  height: 100px;
   margin: 0 auto 16px;
   border-radius: 50%;
-  background: var(--card-border);
+  background-color: var(--card-border);
+  background-image: var(--team-avatar-image, none);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   border: 1px dashed rgba(255,255,255,0.25);
+  overflow: hidden;
 }
 
 .team-name { color: var(--text-primary); font-weight: 600; margin: 0; font-size: 1rem; }
@@ -1314,8 +1307,58 @@ img, svg { display: block; max-width: 100%; }
   border-radius: 4px;
 }
 
-.lead-form-success h3 { color: var(--text-primary); }
-.lead-form-success p { color: var(--text-secondary); margin: 0; }
+/* Adding a Form Success Line 1308-1357 */
+
+.lead-form-success {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-content: center;
+  padding: 24px;
+  background: rgba(10, 15, 30, 0.62);
+}
+.lead-form-success[hidden] { display: none; }
+.lead-form-success::after {
+  content: '';
+  grid-area: 1 / 1;
+  width: min(100%, 460px);
+  min-height: 180px;
+  background: var(--surface, #0A0F1E);
+  border: 1px solid var(--border, #e5e7eb);
+  border-radius: 10px;
+}
+.lead-form-success h3,
+.lead-form-success p,
+.lead-form-success-close { position: relative; z-index: 1; }
+.lead-form-success h3 {
+  grid-area: 1 / 1;
+  align-self: start;
+  width: min(100%, 460px);
+  margin: 0;
+  padding: 36px 52px 0 28px;
+  color: var(--text-primary);
+  text-align: center;
+}
+.lead-form-success p {
+  grid-area: 1 / 1;
+  align-self: center;
+  width: min(100%, 460px);
+  margin: 50px 0 0;
+  padding: 0 30px 25px;
+  color: var(--text-secondary);
+}
+.lead-form-success-close {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  border: 0;
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 1.8rem;
+  line-height: 1;
+  cursor: pointer;
+}
 
 @media (max-width: 860px) {
   .contact-page-grid { grid-template-columns: 1fr; }

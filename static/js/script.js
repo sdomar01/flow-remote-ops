@@ -93,7 +93,19 @@ document.addEventListener('DOMContentLoaded', function () {
       dropdown.classList.remove('open');
     }
 
+/* Add the field into dropdown Line 90-108 */
+
     function open() {
+      document.querySelectorAll('.services-dropdown.open').forEach(function (otherDropdown) {
+        if (otherDropdown === dropdown) return;
+
+        otherDropdown.classList.remove('open');
+        otherDropdown.setAttribute('aria-hidden', 'true');
+
+        var otherTrigger = document.querySelector('[aria-controls="' + otherDropdown.id + '"]');
+        if (otherTrigger) otherTrigger.setAttribute('aria-expanded', 'false');
+      });
+
       trigger.setAttribute('aria-expanded', 'true');
       dropdown.setAttribute('aria-hidden', 'false');
       dropdown.classList.add('open');
@@ -156,6 +168,8 @@ document.addEventListener('DOMContentLoaded', function () {
      Applications, Candidate Inquiries, Candidate Referrals -- plus the
      Apps Script doPost() code that routes by form_type).
   ---------------------------------------------------------------- */
+
+  /* Add a WebHook Url Line 171 */
   var GOOGLE_SHEET_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbwsjD-85BsRPYwl94ad-_eDjsTF0GpI7WpuJx_V6Hmn8pAAU2xuKy-DUjXkNY_W6jwZ/exec';
 
   function submitLeadForm(formData) {
@@ -187,6 +201,24 @@ document.addEventListener('DOMContentLoaded', function () {
     var success = document.getElementById(form.id + '-success')
       || (form.parentElement ? form.parentElement.querySelector('.lead-form-success') : null)
       || document.getElementById('lead-form-success');
+
+/* Add a script for dismissSucess Line 207-221 */
+
+    if (success) {
+      function dismissSuccess() {
+        success.hidden = true;
+      }
+
+      var closeSuccess = success.querySelector('.lead-form-success-close');
+      if (closeSuccess) {
+        closeSuccess.addEventListener('click', dismissSuccess);
+      }
+
+      success.addEventListener('click', dismissSuccess);
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && !success.hidden) dismissSuccess();
+      });
+    }
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
