@@ -412,6 +412,12 @@ COOKIE_POLICY = {
 }
 
 
+@app.context_processor
+def inject_site_url():
+    """Make SITE_URL available in every template (used for canonical tags)."""
+    return {"SITE_URL": SITE_URL}
+
+
 @app.route("/")
 def index():
     """Render the landing page."""
@@ -583,6 +589,12 @@ def talents_candidate_inquiry_form():
 def talents_candidate_referral_form():
     """Render the Candidate Referral Form."""
     return render_template("talent_form_page.html", **CANDIDATE_REFERRAL_FORM)
+
+
+@app.errorhandler(404)
+def page_not_found(e):
+    """Render a branded 404 page instead of Flask's default."""
+    return render_template("404.html"), 404
 
 
 if __name__ == "__main__":

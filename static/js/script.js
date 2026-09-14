@@ -156,7 +156,7 @@ document.addEventListener('DOMContentLoaded', function () {
      Applications, Candidate Inquiries, Candidate Referrals -- plus the
      Apps Script doPost() code that routes by form_type).
   ---------------------------------------------------------------- */
-  var GOOGLE_SHEET_WEBHOOK_URL = 'PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE';
+  var GOOGLE_SHEET_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbwsjD-85BsRPYwl94ad-_eDjsTF0GpI7WpuJx_V6Hmn8pAAU2xuKy-DUjXkNY_W6jwZ/exec';
 
   function submitLeadForm(formData) {
     var isPlaceholder = GOOGLE_SHEET_WEBHOOK_URL.indexOf('PASTE_YOUR') !== -1;

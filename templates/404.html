@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Page Not Found — Flow Remote Ops{% endblock %}
+{% block description %}This page doesn't exist. Head back to the homepage or get in touch.{% endblock %}
+
+{% block content %}
+
+<section class="section coming-soon-page">
+  <div class="glow-orb" style="width:360px; height:360px; top:-140px; left:50%; transform:translateX(-50%);" aria-hidden="true"></div>
+  <div class="section-inner narrow" style="text-align:center;">
+    <p class="eyebrow">404</p>
+    <h1>Page not found.</h1>
+    <p class="section-lead" style="margin-left:auto; margin-right:auto;">The page you're looking for doesn't exist or may have moved.</p>
+    <div class="hero-actions" style="justify-content:center;">
+      <a href="{{ url_for('index') }}" class="btn btn-primary btn-lg">Back to home</a>
+      <a href="{{ url_for('contact') }}" class="btn btn-ghost btn-lg">Contact Us</a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

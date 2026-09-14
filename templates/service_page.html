@@ -3,6 +3,25 @@
 {% block title %}{{ page.title }} — Flow Remote Ops{% endblock %}
 {% block description %}{{ page.description }}{% endblock %}
 
+{% block schema %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": {{ page.title|tojson }},
+  "name": {{ (page.title ~ " — Flow Remote Ops")|tojson }},
+  "description": {{ page.description|tojson }},
+  "provider": {
+    "@type": "Organization",
+    "name": "Flow Remote Ops",
+    "url": {{ SITE_URL|tojson }}
+  },
+  "areaServed": ["US", "GB", "AU"],
+  "url": {{ (SITE_URL ~ request.path)|tojson }}
+}
+</script>
+{% endblock %}
+
 {% block content %}
 
 <section class="section category-page">
