@@ -159,7 +159,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var GOOGLE_SHEET_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbwsjD-85BsRPYwl94ad-_eDjsTF0GpI7WpuJx_V6Hmn8pAAU2xuKy-DUjXkNY_W6jwZ/exec';
 
   function submitLeadForm(formData) {
-    var isPlaceholder = GOOGLE_SHEET_WEBHOOK_URL.indexOf('PASTE_YOUR') !== -1;
+    var isPlaceholder = GOOGLE_SHEET_WEBHOOK_URL.indexOf('https://docs.google.com/spreadsheets/d/1e6Bb6IdjifT2YJdon5jxLexdrjinN25H5USGvSnuT2Q/edit?usp=sharing') !== -1;
 
     if (isPlaceholder) {
       // Not connected yet -- log to console so you can still see the
