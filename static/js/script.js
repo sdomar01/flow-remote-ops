@@ -170,7 +170,7 @@ document.addEventListener('DOMContentLoaded', function () {
   ---------------------------------------------------------------- */
 
   /* Add a WebHook Url Line 171 */
-  var GOOGLE_SHEET_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbwsjD-85BsRPYwl94ad-_eDjsTF0GpI7WpuJx_V6Hmn8pAAU2xuKy-DUjXkNY_W6jwZ/exec';
+  var GOOGLE_SHEET_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbwnidwgjdoV6OcTFt2NHT90TmG8dfODUNxUImTfpfOsVSkbt6u38EI2C6cN1jSiDfMV/exec';
 
   function submitLeadForm(formData) {
     var isPlaceholder = GOOGLE_SHEET_WEBHOOK_URL.indexOf('https://docs.google.com/spreadsheets/d/1e6Bb6IdjifT2YJdon5jxLexdrjinN25H5USGvSnuT2Q/edit?usp=sharing') !== -1;
