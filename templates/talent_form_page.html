@@ -59,8 +59,12 @@
         </p>
       </form>
 
-      <div class="lead-form-success" hidden>
-        <h3>Thanks — we've got it.</h3>
+      <div class="lead-form-success" id="{{ form_id }}-success" role="dialog" aria-modal="true" aria-labelledby="{{ form_id }}-success-title" hidden>
+        <button type="button" class="lead-form-success-close" aria-label="Close confirmation">&times;</button>
+        <span class="lead-form-success-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none"><path d="M5 13l4.5 4.5L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <h3 id="{{ form_id }}-success-title">Thanks — we've got it.</h3>
         <p>Someone from Flow Remote Ops will follow up soon.</p>
       </div>
     </div>

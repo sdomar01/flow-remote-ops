@@ -4,42 +4,6 @@ document.addEventListener('DOMContentLoaded', function () {
   var yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  /* ---------- Hero typewriter effect (two lines) ---------- */
-  var line1El = document.getElementById('typewriter-line1');
-  var line2El = document.getElementById('typewriter-line2');
-  var cursor1 = document.getElementById('cursor-line1');
-  var cursor2 = document.getElementById('cursor-line2');
-
-  if (line1El && line2El) {
-    var line1Text = 'WE RUN THE BACK END';
-    var line2Text = 'YOU BUILD THE BUSINESS';
-    var typeSpeed = 42; // ms per character
-    var idx1 = 0;
-    var idx2 = 0;
-
-    function typeLine1() {
-      if (idx1 <= line1Text.length) {
-        line1El.textContent = line1Text.slice(0, idx1);
-        idx1++;
-        setTimeout(typeLine1, typeSpeed);
-      } else {
-        if (cursor1) cursor1.style.display = 'none';
-        if (cursor2) cursor2.style.display = 'inline-block';
-        setTimeout(typeLine2, 150);
-      }
-    }
-
-    function typeLine2() {
-      if (idx2 <= line2Text.length) {
-        line2El.textContent = line2Text.slice(0, idx2);
-        idx2++;
-        setTimeout(typeLine2, typeSpeed);
-      }
-    }
-
-    typeLine1();
-  }
-
   /* ---------- Mobile menu ---------- */
   var menuToggle = document.getElementById('menu-toggle');
   var mobileNav = document.getElementById('mobile-nav');
@@ -93,19 +57,7 @@ document.addEventListener('DOMContentLoaded', function () {
       dropdown.classList.remove('open');
     }
 
-/* Add the field into dropdown Line 90-108 */
-
     function open() {
-      document.querySelectorAll('.services-dropdown.open').forEach(function (otherDropdown) {
-        if (otherDropdown === dropdown) return;
-
-        otherDropdown.classList.remove('open');
-        otherDropdown.setAttribute('aria-hidden', 'true');
-
-        var otherTrigger = document.querySelector('[aria-controls="' + otherDropdown.id + '"]');
-        if (otherTrigger) otherTrigger.setAttribute('aria-expanded', 'false');
-      });
-
       trigger.setAttribute('aria-expanded', 'true');
       dropdown.setAttribute('aria-hidden', 'false');
       dropdown.classList.add('open');
@@ -163,19 +115,18 @@ document.addEventListener('DOMContentLoaded', function () {
      includes a hidden "form_type" field so the Apps Script knows which
      sheet tab to write the row to.
 
-     Paste your Apps Script Web App URL below once you've deployed it
-     (see the setup steps -- Google Sheet with 4 tabs: Leads, Job
-     Applications, Candidate Inquiries, Candidate Referrals -- plus the
-     Apps Script doPost() code that routes by form_type).
+     The webhook URL comes from the GOOGLE_SHEET_WEBHOOK_URL environment
+     variable (see .env.example), injected into the page as
+     window.GOOGLE_SHEET_WEBHOOK_URL in base.html.
   ---------------------------------------------------------------- */
+  var GOOGLE_SHEET_WEBHOOK_URL = window.GOOGLE_SHEET_WEBHOOK_URL || '';
 
-  /* Add a WebHook Url Line 171 */
-  var GOOGLE_SHEET_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbwnidwgjdoV6OcTFt2NHT90TmG8dfODUNxUImTfpfOsVSkbt6u38EI2C6cN1jSiDfMV/exec';
+  // After a successful submit, how long the "Thanks" message stays on
+  // screen before redirecting back to the homepage.
+  var SUCCESS_REDIRECT_DELAY = 2200; // ms
 
   function submitLeadForm(formData) {
-    var isPlaceholder = GOOGLE_SHEET_WEBHOOK_URL.indexOf('https://docs.google.com/spreadsheets/d/1e6Bb6IdjifT2YJdon5jxLexdrjinN25H5USGvSnuT2Q/edit?usp=sharing') !== -1;
-
-    if (isPlaceholder) {
+    if (!GOOGLE_SHEET_WEBHOOK_URL) {
       // Not connected yet -- log to console so you can still see the
       // full flow working end to end.
       console.log('Form submitted (Google Sheet not connected yet):', Object.fromEntries(formData));
@@ -195,30 +146,16 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  function goHome() {
+    window.location.href = '/';
+  }
+
   document.querySelectorAll('form.lead-form').forEach(function (form) {
     // Success element is either a specific #lead-form-success (contact
     // page) or the nearest .lead-form-success sibling (Talents forms).
     var success = document.getElementById(form.id + '-success')
       || (form.parentElement ? form.parentElement.querySelector('.lead-form-success') : null)
       || document.getElementById('lead-form-success');
-
-/* Add a script for dismissSucess Line 207-221 */
-
-    if (success) {
-      function dismissSuccess() {
-        success.hidden = true;
-      }
-
-      var closeSuccess = success.querySelector('.lead-form-success-close');
-      if (closeSuccess) {
-        closeSuccess.addEventListener('click', dismissSuccess);
-      }
-
-      success.addEventListener('click', dismissSuccess);
-      document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape' && !success.hidden) dismissSuccess();
-      });
-    }
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
@@ -227,9 +164,23 @@ document.addEventListener('DOMContentLoaded', function () {
       var formData = new FormData(form);
       submitLeadForm(formData).then(function () {
         form.hidden = true;
-        if (success) success.hidden = false;
+        if (success) {
+          success.hidden = false;
+          success.classList.add('open');
+        }
+        // Give people a moment to read the confirmation, then send them
+        // back to the homepage.
+        setTimeout(goHome, SUCCESS_REDIRECT_DELAY);
       });
     });
+
+    // Close button (if present) skips the wait and goes home right away.
+    if (success) {
+      var closeBtn = success.querySelector('.lead-form-success-close');
+      if (closeBtn) {
+        closeBtn.addEventListener('click', goHome);
+      }
+    }
   });
 
   /* ---------- Sticky header shadow on scroll ---------- */

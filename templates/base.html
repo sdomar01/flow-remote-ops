@@ -13,6 +13,7 @@
 <meta property="og:title" content="{% block og_title %}{{ self.title() }}{% endblock %}">
 <meta property="og:description" content="{% block og_description %}{{ self.description() }}{% endblock %}">
 <meta property="og:type" content="website">
+<link rel="canonical" href="{{ SITE_URL }}{{ request.path }}">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -175,10 +176,9 @@
 
     </nav>
 
-<!-- Add a Link for Canlendar Line 182 -->
-
     <div class="header-actions">
       <a href="{{ url_for('contact') }}" class="btn btn-ghost btn-sm">Contact Us</a>
+      <!-- placeholder -- swap in your real calendar link (Calendly, cal.com, etc.) -->
       <a href="https://calendar.app.google/FzLaXXFpCRm2MoXD7" class="btn btn-primary btn-sm" target="_blank" rel="noopener noreferrer">Book a Meeting</a>
       <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
         <span></span><span></span><span></span>
@@ -244,6 +244,7 @@
     </div>
 
     <a href="{{ url_for('contact') }}" class="mobile-nav-link-plain">Contact Us</a>
+    <!-- placeholder -- swap in your real calendar link (Calendly, cal.com, etc.) -->
     <a href="https://calendar.app.google/FzLaXXFpCRm2MoXD7" class="btn btn-primary mobile-nav-cta" target="_blank" rel="noopener noreferrer">Book a Meeting</a>
   </div>
 </header>
@@ -312,6 +313,10 @@
   </div>
 </footer>
 
+<script>
+  // Set via the GOOGLE_SHEET_WEBHOOK_URL environment variable (see .env.example).
+  window.GOOGLE_SHEET_WEBHOOK_URL = {{ GOOGLE_SHEET_WEBHOOK_URL|tojson }};
+</script>
 <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 {% block extra_scripts %}{% endblock %}
 </body>

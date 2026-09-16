@@ -22,14 +22,26 @@ Run locally:
 Then visit http://localhost:5000
 """
 
+import os
+
+from dotenv import load_dotenv
 from flask import Flask, render_template, abort, Response
+
+load_dotenv()  # reads .env in local dev; Railway injects real env vars in production
 
 app = Flask(__name__)
 
 # The real domain, once flowremoteops.com (or similar) is live and pointed
-# at this app. Used to build absolute URLs in the sitemap. Update this the
-# day the custom domain goes live.
-SITE_URL = "https://flowremoteops.com"
+# at this app. Used to build absolute URLs in the sitemap. Set via the
+# SITE_URL environment variable (see .env.example) -- falls back to the
+# live domain if not set.
+SITE_URL = os.environ.get("SITE_URL", "https://flowremoteops.com")
+
+# The Google Apps Script Web App URL that the lead/talent forms submit to
+# client-side. Set via the GOOGLE_SHEET_WEBHOOK_URL environment variable
+# (see .env.example). Injected into every page so static/js/script.js can
+# read it from window.GOOGLE_SHEET_WEBHOOK_URL instead of a hardcoded value.
+GOOGLE_SHEET_WEBHOOK_URL = os.environ.get("GOOGLE_SHEET_WEBHOOK_URL", "")
 
 # ----------------------------------------------------------------------
 # Service category pages (Employers dropdown > Services column)
@@ -414,8 +426,9 @@ COOKIE_POLICY = {
 
 @app.context_processor
 def inject_site_url():
-    """Make SITE_URL available in every template (used for canonical tags)."""
-    return {"SITE_URL": SITE_URL}
+    """Make SITE_URL and GOOGLE_SHEET_WEBHOOK_URL available in every
+    template (canonical tags, and the forms' JS webhook target)."""
+    return {"SITE_URL": SITE_URL, "GOOGLE_SHEET_WEBHOOK_URL": GOOGLE_SHEET_WEBHOOK_URL}
 
 
 @app.route("/")

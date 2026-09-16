@@ -294,11 +294,22 @@ img, svg { display: block; max-width: 100%; }
   transition: opacity 0.18s var(--ease), transform 0.18s var(--ease), visibility 0.18s;
   z-index: 90;
 }
-.services-dropdown.open {
+.services-dropdown.open,
+.services-dropdown:hover {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
   transform: translateX(-50%) translateY(0);
+}
+
+/* Hover-to-open on desktop -- click still works too (keyboard/touch) */
+@media (min-width: 961px) {
+  .nav-item:hover .services-dropdown {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+  }
 }
 
 .dropdown-inner { padding: 28px; }
@@ -532,23 +543,23 @@ img, svg { display: block; max-width: 100%; }
 
 .hero-centered h1 {
   max-width: none;
+  font-size: clamp(2.6rem, 5.4vw, 4.4rem);
   line-height: 1.1;
 }
 
-.typewriter-heading { min-height: 2.6em; text-transform: uppercase; }
+.hero-centered h1 { text-transform: uppercase; }
 .hero-line-gold { color: var(--primary); }
 .hero-line-white { color: var(--text-primary); }
 
-.typewriter-cursor {
-  display: inline-block;
-  color: var(--accent);
-  animation: blinkCursor 0.9s step-end infinite;
-  font-weight: 400;
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(16px);
+  animation: fadeInUp 0.7s var(--ease) forwards;
 }
-@keyframes blinkCursor {
-  0%, 49% { opacity: 1; }
-  50%, 100% { opacity: 0; }
+@keyframes fadeInUp {
+  to { opacity: 1; transform: translateY(0); }
 }
+
 .sr-only {
   position: absolute;
   width: 1px; height: 1px;
@@ -1023,8 +1034,8 @@ img, svg { display: block; max-width: 100%; }
 .team-card:hover { transform: translateY(-4px); border-color: rgba(89,167,231,0.3); }
 
 .team-avatar {
-  width: 200px;
-  height: 200px;
+  width: 100px;
+  height: 100px;
   margin: 0 auto 16px;
   border-radius: 50%;
   background-color: var(--card-border);
@@ -1307,58 +1318,69 @@ img, svg { display: block; max-width: 100%; }
   border-radius: 4px;
 }
 
-/* Adding a Form Success Line 1308-1357 */
-
 .lead-form-success {
   position: fixed;
-  inset: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.94);
   z-index: 1000;
-  display: grid;
-  place-content: center;
-  padding: 24px;
-  background: rgba(10, 15, 30, 0.62);
+  width: min(90vw, 440px);
+  background: #0D1424;
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-lg);
+  padding: 40px 32px 32px;
+  text-align: center;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.55);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s var(--ease), transform 0.25s var(--ease);
 }
 .lead-form-success[hidden] { display: none; }
-.lead-form-success::after {
+.lead-form-success.open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+}
+.lead-form-success::before {
   content: '';
-  grid-area: 1 / 1;
-  width: min(100%, 460px);
-  min-height: 180px;
-  background: var(--surface, #0A0F1E);
-  border: 1px solid var(--border, #e5e7eb);
-  border-radius: 10px;
+  position: fixed;
+  inset: 0;
+  background: rgba(6, 10, 20, 0.7);
+  backdrop-filter: blur(3px);
+  z-index: -1;
 }
-.lead-form-success h3,
-.lead-form-success p,
-.lead-form-success-close { position: relative; z-index: 1; }
-.lead-form-success h3 {
-  grid-area: 1 / 1;
-  align-self: start;
-  width: min(100%, 460px);
-  margin: 0;
-  padding: 36px 52px 0 28px;
-  color: var(--text-primary);
-  text-align: center;
+
+.lead-form-success-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 18px;
+  border-radius: 50%;
+  background: rgba(255,178,12,0.14);
+  color: var(--primary);
 }
-.lead-form-success p {
-  grid-area: 1 / 1;
-  align-self: center;
-  width: min(100%, 460px);
-  margin: 50px 0 0;
-  padding: 0 30px 25px;
-  color: var(--text-secondary);
-}
+
+.lead-form-success h3 { color: var(--text-primary); margin-bottom: 0.5em; }
+.lead-form-success p { color: var(--text-secondary); margin: 0; }
+
 .lead-form-success-close {
   position: absolute;
   top: 14px;
-  right: 18px;
-  border: 0;
-  background: transparent;
+  right: 16px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid var(--card-border);
+  background: rgba(255,255,255,0.04);
   color: var(--text-secondary);
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   line-height: 1;
   cursor: pointer;
+  transition: color 0.15s var(--ease), border-color 0.15s var(--ease);
 }
+.lead-form-success-close:hover { color: var(--text-primary); border-color: var(--accent); }
 
 @media (max-width: 860px) {
   .contact-page-grid { grid-template-columns: 1fr; }
