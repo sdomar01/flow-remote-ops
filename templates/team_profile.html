@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block title %}{{ member.name }} — Flow Remote Ops{% endblock %}
+{% block description %}{{ member.name }}{% if member.role %}, {{ member.role }}{% endif %} at Flow Remote Ops.{% endblock %}
+
+{% block content %}
+
+<section class="section category-page team-profile">
+  <div class="glow-orb" style="width:420px; height:420px; top:-160px; right:-160px;" aria-hidden="true"></div>
+  <div class="section-inner narrow">
+    <a href="{{ url_for('about') }}" class="team-profile-back">← Back to Company and Team</a>
+
+    <div class="team-profile-header">
+      <div class="team-avatar team-profile-avatar" aria-hidden="true" style="--team-avatar-image: url('{{ url_for('static', filename=member.avatar_image) }}');"></div>
+      <div>
+        <h1>{{ member.name }}</h1>
+        {% if member.role %}<p class="team-profile-role">{{ member.role }}</p>{% endif %}
+      </div>
+    </div>
+
+    <div class="vm-block">
+      <h2>Experience</h2>
+      {% if member.experience %}
+        <ul class="category-items-list-plain">
+          {% for item in member.experience %}
+          <li>{{ item }}</li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p class="team-profile-placeholder">Experience details coming soon.</p>
+      {% endif %}
+    </div>
+
+    <div class="vm-block">
+      <h2>Skills</h2>
+      {% if member.skills %}
+        <div class="role-tags">
+          {% for skill in member.skills %}
+          <span class="role-tag">{{ skill }}</span>
+          {% endfor %}
+        </div>
+      {% else %}
+        <p class="team-profile-placeholder">Skills coming soon.</p>
+      {% endif %}
+    </div>
+
+    <div class="vm-block">
+      <h2>Projects</h2>
+      {% if member.projects %}
+        <ul class="category-items-list-plain">
+          {% for item in member.projects %}
+          <li>{{ item }}</li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p class="team-profile-placeholder">Projects coming soon.</p>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% endblock %}

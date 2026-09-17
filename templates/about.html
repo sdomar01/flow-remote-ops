@@ -32,26 +32,13 @@
     <p class="section-lead">The people behind Flow Remote Ops.</p>
 
     <div class="team-grid">
-      <div class="team-card">
-        <div class="team-avatar" aria-hidden="true" style="--team-avatar-image: url('{{ url_for('static', filename='images/igi.png') }}');"></div>
-        <p class="team-name">Igi PV.</p>
-        <p class="team-role">Founder</p>
-      </div>
-      <div class="team-card">
-        <div class="team-avatar" aria-hidden="true" style="--team-avatar-image: url('{{ url_for('static', filename='images/sadhan.png') }}');"></div>
-        <p class="team-name">Sadhan O.</p>
-        <p class="team-role">Lead Generation Specialist</p>
-      </div>
-      <div class="team-card">
-        <div class="team-avatar" aria-hidden="true" style="--team-avatar-image: url('{{ url_for('static', filename='images/Joe.jpg') }}');"></div>
-        <p class="team-name">Weistien Joe O.</p>
-        <p class="team-role">Graphic Designer</p>
-      </div>
-      <div class="team-card">
-        <div class="team-avatar" aria-hidden="true" style="--team-avatar-image: url('{{ url_for('static', filename='images/Ian.jpg') }}');"></div>
-        <p class="team-name">Ian John Q.</p>
-        <p class="team-role">Web Developer</p>
-      </div>
+      {% for slug, m in team.items() %}
+      <a href="{{ url_for('team_profile', slug=slug) }}" class="team-card">
+        <div class="team-avatar" aria-hidden="true" style="--team-avatar-image: url('{{ url_for('static', filename=m.avatar_image) }}');"></div>
+        <p class="team-name">{{ m.name }}</p>
+        {% if m.role %}<p class="team-role">{{ m.role }}</p>{% endif %}
+      </a>
+      {% endfor %}
     </div>
   </div>
 </section>

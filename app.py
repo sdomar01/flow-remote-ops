@@ -162,6 +162,46 @@ WHO_WE_HELP_PAGES = {
 # ----------------------------------------------------------------------
 # Talents pages -- for people interested in working with Flow Remote Ops
 # ----------------------------------------------------------------------
+# ----------------------------------------------------------------------
+# Team members shown on /about, each with their own profile page at
+# /team/<slug>. Experience / Skills / Projects are placeholders --
+# replace the content, keep the section order.
+# ----------------------------------------------------------------------
+TEAM_MEMBERS = {
+    "igi-pv": {
+        "name": "Igi PV.",
+        "role": "Founder",
+        "avatar_image": "images/.jpg",
+        "experience": [],
+        "skills": [],
+        "projects": [],
+    },
+    "sadhan-o": {
+        "name": "Sadhan O.",
+        "role": "",
+        "avatar_image": "images/Joe-Weistein.jpg",
+        "experience": [],
+        "skills": [],
+        "projects": [],
+    },
+    "weistein-joe-o": {
+        "name": "Weistien Joe O.",
+        "role": "",
+        "avatar_image": "images/Joe.jpg",
+        "experience": [],
+        "skills": [],
+        "projects": [],
+    },
+    "ian-john-q": {
+        "name": "Ian John Q.",
+        "role": "",
+        "avatar_image": "images/Ian.jpg",
+        "experience": [],
+        "skills": [],
+        "projects": [],
+    },
+}
+
 CAREERS_PAGE = {
     "title": "Careers",
     "tagline": "Work with growing businesses as a remote specialist.",
@@ -490,7 +530,15 @@ def contact():
 @app.route("/about")
 def about():
     """Render the dedicated About Us page."""
-    return render_template("about.html")
+    return render_template("about.html", team=TEAM_MEMBERS)
+
+
+@app.route("/team/<slug>")
+def team_profile(slug):
+    """Render an individual team member's profile page."""
+    if slug not in TEAM_MEMBERS:
+        abort(404)
+    return render_template("team_profile.html", member=TEAM_MEMBERS[slug])
 
 
 @app.route("/vision-and-mission")
