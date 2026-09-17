@@ -171,7 +171,7 @@ TEAM_MEMBERS = {
     "igi-pv": {
         "name": "Igi PV.",
         "role": "Founder",
-        "avatar_image": "igi.png",
+        "avatar_image": "images/igi.png",
         "experience": [],
         "skills": [],
         "projects": [],
@@ -179,7 +179,7 @@ TEAM_MEMBERS = {
     "sadhan-o": {
         "name": "Sadhan O.",
         "role": "Lead Generation Specialist",
-        "avatar_image": "sadhan.png",
+        "avatar_image": "images/sadhan.png",
         "experience": [],
         "skills": [],
         "projects": [],
