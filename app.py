@@ -197,28 +197,31 @@ TEAM_MEMBERS = {
 
     "name": "Sadhan O.",
 
-    "role": "Lead Generation Specialist",
+    "role": "Co-Founder",
 
     "avatar_image": "images/sadhan.png",
 
-    "description": "Provides lead generation, prospect research, and outreach support for Flow Remote Ops while also contributing to the development and continuous improvement of the agency's website and digital systems.",
+    "description": "Contributes to the growth and development of Flow Remote Ops by supporting business operations, lead generation, client acquisition, and the development of the agency's digital systems.",
 
     "experience": [
         "Lead generation and prospect research",
-        "Building and organizing targeted prospect lists",
-        "Lead qualification and data management",
-        "Supporting email and LinkedIn outreach activities",
+        "Building and managing targeted prospect lists",
+        "Lead qualification and CRM/data management",
+        "Email and LinkedIn outreach",
+        "Client acquisition and sales support",
         "Developing and maintaining the Flow Remote Ops website",
+        "Building and improving internal workflows and automation",
     ],
 
     "skills": [
         "Lead Generation",
         "Prospect Research",
         "Lead Qualification",
-        "CRM",
+        "CRM Management",
         "Data Management",
         "Email Outreach",
         "LinkedIn Outreach",
+        "Sales Support",
         "Apollo",
         "Apify",
         "Google Maps Research",
@@ -233,6 +236,9 @@ TEAM_MEMBERS = {
         "Git",
         "Railway",
     ],
+
+    "projects": [],
+
     },
 "weistein-joe-o": {
 
