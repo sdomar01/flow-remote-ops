@@ -543,8 +543,6 @@ img, svg { display: block; max-width: 100%; }
 
 .hero-centered h1 {
   max-width: none;
-  font-size: clamp(2.6rem, 5.4vw, 4.4rem);
-  line-height: 1.1;
 }
 
 .hero-centered h1 { text-transform: uppercase; }
