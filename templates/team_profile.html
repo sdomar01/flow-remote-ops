@@ -19,6 +19,15 @@
     </div>
 
     <div class="vm-block">
+    <h2>Team Description</h2>
+    {% if member.description %}
+    <p>{{ member.description }}</p>
+    {% else %}
+    <p class="team-profile-placeholder">Team description coming soon.</p>
+    {% endif %}
+    </div>
+
+    <div class="vm-block">
       <h2>Experience</h2>
       {% if member.experience %}
         <ul class="category-items-list-plain">
@@ -41,19 +50,6 @@
         </div>
       {% else %}
         <p class="team-profile-placeholder">Skills coming soon.</p>
-      {% endif %}
-    </div>
-
-    <div class="vm-block">
-      <h2>Projects</h2>
-      {% if member.projects %}
-        <ul class="category-items-list-plain">
-          {% for item in member.projects %}
-          <li>{{ item }}</li>
-          {% endfor %}
-        </ul>
-      {% else %}
-        <p class="team-profile-placeholder">Projects coming soon.</p>
       {% endif %}
     </div>
   </div>

@@ -1035,8 +1035,8 @@ img, svg { display: block; max-width: 100%; }
 .team-card:hover { transform: translateY(-4px); border-color: var(--accent); }
 
 .team-avatar {
-  width: 100px;
-  height: 100px;
+  width: 200px;
+  height: 200px;
   margin: 0 auto 16px;
   border-radius: 50%;
   background-color: var(--card-border);

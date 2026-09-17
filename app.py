@@ -169,37 +169,133 @@ WHO_WE_HELP_PAGES = {
 # ----------------------------------------------------------------------
 TEAM_MEMBERS = {
     "igi-pv": {
-        "name": "Igi PV.",
-        "role": "Founder",
-        "avatar_image": "images/igi.png",
-        "experience": [],
-        "skills": [],
-        "projects": [],
+
+    "name": "Igi PV.",
+
+    "role": "Founder",
+
+    "avatar_image": "images/igi.png",
+
+    "experience": [
+        "Founder at Flow Remote Ops",
+        "Remote team and business operations",
+    ],
+
+    "skills": [
+        "Team Management",
+        "Business Operations",
+        "Business Development",
+        "Remote Team Management",
+    ],
+
+    "projects": [
+        "Flow Remote Ops",
+    ],
+
     },
     "sadhan-o": {
-        "name": "Sadhan O.",
-        "role": "Lead Generation Specialist",
-        "avatar_image": "images/sadhan.png",
-        "experience": [],
-        "skills": [],
-        "projects": [],
+
+    "name": "Sadhan O.",
+
+    "role": "Lead Generation Specialist",
+
+    "avatar_image": "images/sadhan.png",
+
+    "description": "Provides lead generation, prospect research, and outreach support for Flow Remote Ops while also contributing to the development and continuous improvement of the agency's website and digital systems.",
+
+    "experience": [
+        "Lead generation and prospect research",
+        "Building and organizing targeted prospect lists",
+        "Lead qualification and data management",
+        "Supporting email and LinkedIn outreach activities",
+        "Developing and maintaining the Flow Remote Ops website",
+    ],
+
+    "skills": [
+        "Lead Generation",
+        "Prospect Research",
+        "Lead Qualification",
+        "CRM",
+        "Data Management",
+        "Email Outreach",
+        "LinkedIn Outreach",
+        "Apollo",
+        "Apify",
+        "Google Maps Research",
+        "Zapier",
+        "n8n",
+        "Web Development",
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "Python",
+        "Flask",
+        "Git",
+        "Railway",
+    ],
     },
-    "weistein-joe-o": {
-        "name": "Weistien Joe O.",
-        "role": "Graphic Designer",
-        "avatar_image": "images/Joe.jpg",
-        "experience": [],
-        "skills": [],
-        "projects": [],
-    },
-    "ian-john-q": {
-        "name": "Ian John Q.",
-        "role": "Web Developer",
-        "avatar_image": "images/Ian.jpg",
-        "experience": [],
-        "skills": [],
-        "projects": [],
-    },
+"weistein-joe-o": {
+
+    "name": "Weistien Joe O.",
+
+    "role": "Graphic Designer",
+
+    "avatar_image": "images/Joe.jpg",
+
+    "description": "Provides graphic design, broadcast, front-end development, and data entry support for Flow Remote Ops and its clients, contributing to creative, technical, and administrative tasks.",
+
+    "experience": [
+        "Graphic design for PMEL",
+        "Data entry for PUBG Mobile Esports",
+        "Graphic design for PMAC",
+        "Front-end development",
+        "Broadcast direction for esports events",
+    ],
+
+    "skills": [
+        "Graphic Design",
+        "Broadcast Direction",
+        "Front-end Development",
+        "Data Entry",
+        "Administrative Support",
+        "Basic UI/UX Design",
+    ],
+
+},
+"ian-john-q": {
+
+    "name": "Ian John Q.",
+
+    "role": "Web Developer",
+
+    "avatar_image": "images/Ian.jpg",
+
+    "description": "Provides web development and technical implementation support for Flow Remote Ops and its clients, including building, maintaining, and improving websites and digital solutions.",
+
+    "experience": [
+        "Full-stack web development and programming",
+        "Freelance Laravel web development and programming",
+        "Web development and administration for business websites",
+        "WordPress technical support and website maintenance",
+        "Website development and IT support",
+    ],
+
+    "skills": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "PHP",
+        "Laravel",
+        "Tailwind CSS",
+        "MySQL",
+        "WordPress",
+        "Git",
+        "Figma",
+        "Adobe Photoshop",
+        "Adobe Illustrator",
+        "Canva",
+    ],
+},
 }
 
 CAREERS_PAGE = {
