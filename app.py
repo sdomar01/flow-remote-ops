@@ -168,31 +168,41 @@ WHO_WE_HELP_PAGES = {
 # replace the content, keep the section order.
 # ----------------------------------------------------------------------
 TEAM_MEMBERS = {
-    "igi-pv": {
-
-    "name": "Igi PV.",
-
+"igi-pv": {
+    "name": "Igi P. Villacampa",
     "role": "Founder",
-
     "avatar_image": "images/igi.png",
-
+    "description": "Leads the growth and development of Flow Remote Ops, bringing hands-on experience across business operations, finance, marketing, sales systems, and workflow automation.",
     "experience": [
-        "Founder at Flow Remote Ops",
-        "Remote team and business operations",
+        "Business operations and process management",
+        "Building and documenting SOPs",
+        "Pipeline and CRM management",
+        "Finance and bookkeeping support",
+        "Meta and TikTok advertising",
+        "GHL automation and CRM systems",
+        "Workflow automation and process improvement",
+        "B2B lead generation and sales support",
+        "E-commerce operations support",
     ],
-
     "skills": [
-        "Team Management",
+        "Executive & Administrative Support",
         "Business Operations",
-        "Business Development",
-        "Remote Team Management",
+        "SOP Development",
+        "Pipeline Management",
+        "CRM Management",
+        "Finance & Bookkeeping",
+        "QuickBooks",
+        "Xero",
+        "GHL",
+        "CRM Automation",
+        "B2B Lead Generation",
+        "E-commerce Support",
+        "Meta Ads",
+        "TikTok Ads",
+        "Workflow Automation",
     ],
-
-    "projects": [
-        "Flow Remote Ops",
-    ],
-
-    },
+    "projects": [],
+},
     "sadhan-o": {
 
     "name": "Sadhan O.",
