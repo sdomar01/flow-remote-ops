@@ -205,7 +205,7 @@ TEAM_MEMBERS = {
 },
     "sadhan-o": {
 
-    "name": "Sadhan O.",
+    "name": "Sadhan Omar",
 
     "role": "Co-Founder",
 
@@ -252,7 +252,7 @@ TEAM_MEMBERS = {
     },
 "weistein-joe-o": {
 
-    "name": "Weistien Joe O.",
+    "name": "Weistien Joe Ortiz",
 
     "role": "Graphic Designer",
 
@@ -280,7 +280,7 @@ TEAM_MEMBERS = {
 },
 "ian-john-q": {
 
-    "name": "Ian John Q.",
+    "name": "Ian John Quimot",
 
     "role": "Web Developer",
 
