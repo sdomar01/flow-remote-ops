@@ -170,7 +170,7 @@ WHO_WE_HELP_PAGES = {
 TEAM_MEMBERS = {
 "igi-pv": {
     "name": "Igi P. Villacampa",
-    "role": "Founder",
+    "role": "Founder & Managing Director",
     "avatar_image": "images/igi.png",
     "description": "Leads the growth and development of Flow Remote Ops, bringing hands-on experience across business operations, finance, marketing, sales systems, and workflow automation.",
     "experience": [
@@ -207,7 +207,7 @@ TEAM_MEMBERS = {
 
     "name": "Sadhan Omar",
 
-    "role": "Co-Founder",
+    "role": "Co-Founder & Operations Director",
 
     "avatar_image": "images/sadhan.png",
 
@@ -254,7 +254,7 @@ TEAM_MEMBERS = {
 
     "name": "Weistien Joe Ortiz",
 
-    "role": "Graphic Designer",
+    "role": "Creative & Brand Lead",
 
     "avatar_image": "images/Joe.jpg",
 
@@ -282,7 +282,7 @@ TEAM_MEMBERS = {
 
     "name": "Ian John Quimot",
 
-    "role": "Web Developer",
+    "role": "Web & Technology Lead",
 
     "avatar_image": "images/Ian.jpg",
 
