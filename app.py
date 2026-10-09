@@ -612,7 +612,7 @@ def sitemap_xml():
     targets.
     """
     static_paths = [
-        "/", "/contact", "/about", "/vision-and-mission", "/how-it-works",
+        "/", "/contact", "/free-team-assessment", "/about", "/vision-and-mission", "/how-it-works",
         "/why-work-with-us", "/outsourcing-services", "/faq", "/blog",
         "/terms-of-service", "/privacy-policy", "/cookie-policy",
         "/talents/careers", "/talents/application-process", "/talents/work-life-balance",
@@ -638,6 +638,15 @@ def contact():
     """Render the dedicated Build Your Remote Team / contact page."""
     return render_template("contact.html")
 
+@app.route("/free-team-assessment")
+def free_team_assessment():
+    """Render the Free Remote Team Assessment landing page.
+
+    Standalone top-of-funnel landing page for outreach/ads traffic.
+    Its CTAs link to the existing /contact lead form and the existing
+    Google Calendar booking link -- no new form or Sheets wiring here.
+    """
+    return render_template("free_team_assessment.html")
 
 @app.route("/about")
 def about():
