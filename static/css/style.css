@@ -2048,9 +2048,9 @@ a:focus-visible, button:focus-visible, select:focus-visible, summary:focus-visib
 /* Team cards — fit avatars inside cards on small screens */
 @media (max-width: 720px) {
   .team-grid { gap: 14px; }
-  .team-card { padding: 28px 10px 26px; }
-  .team-avatar { width: 100%; max-width: 200px; height: auto; aspect-ratio: 1 / 1; }
-  .team-name { font-size: .95rem; padding: 0 4px; }
-  .team-role { font-size: .8rem; padding: 0 4px; }
-  .team-profile-avatar { width: 88px; height: 88px; max-width: none; aspect-ratio: auto; }
+  .team-grid .team-card { padding: 28px 10px 26px; }
+  .team-grid .team-card .team-avatar { width: 100% !important; max-width: 200px; height: auto !important; aspect-ratio: 1 / 1; }
+  .team-grid .team-card .team-name { font-size: .95rem; padding: 0 4px; }
+  .team-grid .team-card .team-role { font-size: .8rem; padding: 0 4px; }
+  .team-profile .team-profile-avatar { width: 88px !important; height: 88px !important; max-width: none; aspect-ratio: auto; }
 }
