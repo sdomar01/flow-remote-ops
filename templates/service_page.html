@@ -33,13 +33,11 @@
     <p>{{ page.description }}</p>
 
     {% if page.included %}
-    <div class="category-items">
-      <p class="dropdown-heading">What this covers</p>
-      <ul>
-        {% for item in page.included %}
-        <li>{{ item }}</li>
-        {% endfor %}
-      </ul>
+    <p class="dropdown-heading" style="margin-top:2em;">What this covers</p>
+    <div class="help-grid">
+      {% for item in page.included %}
+      <div class="help-card"><p>{{ item }}</p></div>
+      {% endfor %}
     </div>
     {% endif %}
 

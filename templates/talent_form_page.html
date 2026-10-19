@@ -52,11 +52,6 @@
         {% endfor %}
 
         <button type="submit" class="btn btn-primary btn-lg lead-form-submit">Submit</button>
-
-        <p class="lead-form-note">
-          This form currently doesn't send anywhere yet — connect it to your Google Form or backend of choice.
-          See <code>submitLeadForm()</code> in <code>static/js/script.js</code>.
-        </p>
       </form>
 
       <div class="lead-form-success" id="{{ form_id }}-success" role="dialog" aria-modal="true" aria-labelledby="{{ form_id }}-success-title" hidden>

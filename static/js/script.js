@@ -197,7 +197,7 @@ document.addEventListener('DOMContentLoaded', function () {
   handleScroll();
 
   /* ---------- Scroll-reveal animations ---------- */
-  var revealSelector = '.why-item, .service-group, .who-card, .funnel-item, .role-item, .process-line li, .category-items, .founder-note, .vm-block';
+  var revealSelector = '.why-item, .service-group, .who-card, .funnel-item, .role-item, .process-line li, .category-items, .founder-note, .vm-block, .pillar-card, .help-card, .problem-list li';
   var revealEls = document.querySelectorAll(revealSelector);
 
   if ('IntersectionObserver' in window && revealEls.length) {

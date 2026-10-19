@@ -14,13 +14,11 @@
     <p>{{ page.description }}</p>
 
     {% if page.highlights %}
-    <div class="category-items category-items-list">
-      <p class="dropdown-heading">How we can help</p>
-      <ul>
-        {% for item in page.highlights %}
-        <li>{{ item }}</li>
-        {% endfor %}
-      </ul>
+    <p class="dropdown-heading" style="margin-top:2em;">How we can help</p>
+    <div class="help-grid">
+      {% for item in page.highlights %}
+      <div class="help-card"><p>{{ item }}</p></div>
+      {% endfor %}
     </div>
     {% endif %}
 
