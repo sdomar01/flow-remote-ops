@@ -219,3 +219,17 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
 });
+/* Split cards: expand on hover/focus/tap */
+(function () {
+  var wrap = document.getElementById('split');
+  if (!wrap) return;
+  var cards = wrap.querySelectorAll('.split-card');
+  function activate(c) {
+    cards.forEach(function (x) { x.classList.toggle('is-active', x === c); });
+  }
+  cards.forEach(function (c) {
+    c.addEventListener('mouseenter', function () { activate(c); });
+    c.addEventListener('focus', function () { activate(c); });
+    c.addEventListener('click', function () { activate(c); });
+  });
+})();

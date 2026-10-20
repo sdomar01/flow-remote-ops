@@ -2063,3 +2063,91 @@ a:focus-visible, button:focus-visible, select:focus-visible, summary:focus-visib
 .funnel .funnel-item { border: 1px solid rgba(33, 64, 114, 0.18); box-shadow: 0 14px 34px -14px rgba(40, 76, 134, 0.28), 0 2px 8px rgba(11, 30, 61, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.9); }
 .funnel .funnel-item::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 3px; background: linear-gradient(90deg, var(--primary), rgba(255, 178, 12, 0)); opacity: .85; }
 .funnel .funnel-item:hover { border-color: rgba(255, 178, 12, 0.7); box-shadow: 0 22px 44px -14px rgba(11, 30, 61, 0.3), 0 0 0 3px rgba(255, 178, 12, 0.12), inset 0 1px 0 #fff; }
+
+/* ===== Split cards (expand on hover) ===== */
+.split-section { padding-top: 4rem; padding-bottom: 4rem; }
+.split-heading { font-size: .78rem; letter-spacing: .18em; text-transform: uppercase; color: var(--primary); margin: 0 0 20px; text-align: center; }
+.split { display: flex; gap: 16px; align-items: stretch; }
+.split-card {
+  position: relative; overflow: hidden; flex: 1 1 0; min-width: 0;
+  padding: 44px 40px 48px; border-radius: 28px; outline: none;
+  display: flex; flex-direction: column;
+  transition: flex-grow .7s cubic-bezier(.22,.8,.26,1), box-shadow .4s ease;
+}
+.split-card.is-active { flex-grow: 2.1; box-shadow: 0 24px 60px rgba(0,0,0,.35); }
+.split-dark  { background: #06264F; color: #fff; border: 1px solid rgba(255,255,255,.08); }
+.split-light { background: #DCEBFA; color: #0A0F1E; }
+
+.split-eyebrow { font-size: .72rem; letter-spacing: .18em; font-weight: 600; opacity: .7; margin-bottom: 18px; }
+.split-title { font-size: clamp(1.7rem, 2.6vw, 2.6rem); line-height: 1.12; font-weight: 400; letter-spacing: -.01em; margin: 0 0 18px; max-width: 18ch; }
+.split-lead { font-size: 1rem; line-height: 1.6; max-width: 46ch; opacity: .85; margin: 0 0 20px; }
+
+.split-list {
+  margin: 0; padding: 0 0 0 1.1rem; font-size: .98rem; line-height: 1.9;
+  max-height: 0; opacity: 0; overflow: hidden; transform: translateY(10px);
+  transition: max-height .6s ease, opacity .5s ease .12s, transform .5s ease .12s;
+}
+.split-card.is-active .split-list { max-height: 320px; opacity: 1; transform: none; margin-bottom: 8px; }
+.split-dark .split-list li::marker { color: #FFB20C; }
+
+.split-btn {
+  margin-top: auto; align-self: flex-start; display: inline-flex; align-items: center; gap: 14px;
+  padding: 10px 12px 10px 26px; border-radius: 999px; font-weight: 600; text-decoration: none;
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.split-btn-light { background: #fff; color: #0A0F1E; }
+.split-btn-dark  { background: #0A0F1E; color: #fff; }
+.split-arrow {
+  width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center;
+  background: rgba(89,167,231,.28); transition: transform .3s ease;
+}
+.split-btn-dark .split-arrow { background: rgba(255,255,255,.14); }
+.split-btn:hover { transform: translateY(-2px); }
+.split-btn:hover .split-arrow { transform: translateX(4px); }
+
+.split-mark {
+  position: absolute; right: -10px; bottom: -34px; font-size: clamp(7rem, 14vw, 13rem);
+  font-weight: 300; line-height: 1; letter-spacing: -.04em; pointer-events: none; user-select: none;
+  opacity: .06; transition: opacity .6s ease, transform .7s ease;
+}
+.split-light .split-mark { color: #0A0F1E; opacity: .07; }
+.split-card.is-active .split-mark { opacity: .1; transform: translateX(-12px); }
+
+@media (max-width: 860px) {
+  .split { flex-direction: column; }
+  .split-card, .split-card.is-active { flex: none; padding: 32px 24px 36px; }
+  .split-list { max-height: none; opacity: 1; transform: none; margin-bottom: 20px; }
+  .split-btn { margin-top: 8px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .split-card, .split-list, .split-mark, .split-btn, .split-arrow { transition: none; }
+}
+/* ===== Split cards: color fix ===== */
+.split-card.split-light .split-title,
+.split-card.split-light .split-lead,
+.split-card.split-light .split-eyebrow,
+.split-card.split-light .split-list { color: #0A0F1E; }
+.split-card.split-light .split-lead { opacity: .8; }
+
+.split-card.split-dark .split-title,
+.split-card.split-dark .split-eyebrow,
+.split-card.split-dark .split-list { color: #fff; }
+.split-card.split-dark .split-lead { color: rgba(255,255,255,.78); opacity: 1; }
+
+.split-card .split-btn-light { color: #0A0F1E; }
+.split-card .split-btn-dark  { color: #fff; }
+
+.split-dark .split-mark { right: 12px; font-size: clamp(5rem, 9vw, 9rem); }
+/* ===== Split section background (same as Problem) ===== */
+.split-section {
+  background: linear-gradient(rgba(6,38,79,0.78), rgba(6,38,79,0.78)), url('../images/sectionaccent.png');
+  background-repeat: no-repeat;
+  background-position: bottom left;
+  background-size: contain, contain;
+}
+
+/* dark card needs separation from the blue background */
+.split-card.split-dark {
+  background: #041B3A;
+  border: 1px solid rgba(255,255,255,.12);
+}
