@@ -616,6 +616,7 @@ def sitemap_xml():
         "/why-work-with-us", "/outsourcing-services", "/faq", "/blog",
         "/terms-of-service", "/privacy-policy", "/cookie-policy",
         "/talents/careers", "/talents/application-process", "/talents/work-life-balance",
+        "/blog/which-task-would-you-remove",
     ]
     service_paths = [f"/services/{slug}" for slug in SERVICE_PAGES]
     who_we_help_paths = [f"/who-we-help/{slug}" for slug in WHO_WE_HELP_PAGES]
@@ -697,6 +698,10 @@ def blog():
     """Render the Blog landing page (no posts yet)."""
     return render_template("blog.html")
 
+@app.route("/blog/which-task-would-you-remove")
+def blog_task_disappeared():
+    """Blog post: If one task disappeared tomorrow, which would it be?"""
+    return render_template("blog_post_task.html")
 
 @app.route("/terms-of-service")
 def terms_of_service():
