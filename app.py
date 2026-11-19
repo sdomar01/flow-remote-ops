@@ -35,7 +35,10 @@ app = Flask(__name__)
 # at this app. Used to build absolute URLs in the sitemap. Set via the
 # SITE_URL environment variable (see .env.example) -- falls back to the
 # live domain if not set.
-SITE_URL = os.environ.get("SITE_URL", "https://flowremoteops.com")
+_raw_site_url = os.environ.get("SITE_URL", "https://flowremoteops.com").strip()
+if not _raw_site_url.startswith(("http://", "https://")):
+    _raw_site_url = "https://" + _raw_site_url
+SITE_URL = _raw_site_url.rstrip("/")
 
 # The Google Apps Script Web App URL that the lead/talent forms submit to
 # client-side. Set via the GOOGLE_SHEET_WEBHOOK_URL environment variable
@@ -591,16 +594,52 @@ def index():
 
 @app.route("/robots.txt")
 def robots_txt():
-    """Serve robots.txt -- keep form pages out of the crawl budget."""
-    lines = [
-        "User-agent: *",
-        "Allow: /",
+    """Serve robots.txt -- keep form pages out, allow search and AI crawlers."""
+    disallow = [
         "Disallow: /talents/job-application-form",
         "Disallow: /talents/candidate-inquiry-form",
         "Disallow: /talents/candidate-referral-form",
-        f"Sitemap: {SITE_URL}/sitemap.xml",
     ]
+    lines = ["User-agent: *", "Allow: /"] + disallow + [""]
+    for bot in ["GPTBot", "OAI-SearchBot", "ClaudeBot", "Claude-SearchBot", "PerplexityBot", "Google-Extended"]:
+        lines += [f"User-agent: {bot}", "Allow: /"] + disallow + [""]
+    lines.append(f"Sitemap: {SITE_URL}/sitemap.xml")
     return Response("\n".join(lines), mimetype="text/plain")
+
+
+@app.route("/llms.txt")
+def llms_txt():
+    """Plain-text summary of the site for AI assistants."""
+    text = f"""# Flow Remote Ops
+
+> Remote staffing and operations company. We give founders in the US, UK, and Australia pre-vetted remote specialists, documented SOPs, and automation so the business runs on systems, not on the founder.
+
+## What we do
+- Executive & Admin Support: inbox and calendar management, research, data entry and reporting, customer support, travel and PA tasks. {SITE_URL}/services/executive-admin-support
+- Finance & Bookkeeping: bookkeeping and reconciliation, invoicing and AR follow-up, expense tracking and monthly reports. {SITE_URL}/services/finance-bookkeeping
+- Creative & Content: video editing, graphic design, social media management, content repurposing. {SITE_URL}/services/creative-content
+- Systems & Automation: GoHighLevel builds and funnels, email automation and CRM setup, SOP documentation, ad support. {SITE_URL}/services/systems-automation
+
+## How it works
+{SITE_URL}/how-it-works
+
+## Who we help
+Growing businesses, agencies, SaaS companies, e-commerce businesses, real estate companies, coaches and consultants, professional services firms, and startups. {SITE_URL}/outsourcing-services
+
+## Markets served
+United States, United Kingdom, Australia.
+
+## Contact
+- {SITE_URL}/contact
+- info@flowremoteops.com
+
+## Key pages
+- About: {SITE_URL}/about
+- FAQ: {SITE_URL}/faq
+- Careers: {SITE_URL}/talents/careers
+- Blog: {SITE_URL}/blog
+"""
+    return Response(text, mimetype="text/plain")
 
 
 @app.route("/sitemap.xml")
